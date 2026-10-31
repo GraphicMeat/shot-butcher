@@ -1,0 +1,26 @@
+{
+  "tagline": "Mail lesen. Mail behalten.",
+  "slots": {
+    "unified-inbox": { "kicker": "Gemeinsamer Posteingang", "headline": "Mail lesen. Mail behalten.", "sub": "Ein vollständiger E-Mail-Client, der jede Nachricht als einfache .eml-Datei auf deiner eigenen Festplatte ablegt." },
+    "chat-view-chat": { "kicker": "Chat-Ansicht", "headline": "Verläufe, die sich wie ein Gespräch lesen", "sub": "Gesendete und empfangene Mails in einem Strom aus Sprechblasen." },
+    "archive-progress": { "kicker": "Archivieren, dann löschen", "headline": "Den Server leeren, ohne etwas zu verlieren", "sub": "Tausende Nachrichten im Tresor archivieren und in einem Schritt vom Server löschen." },
+    "local-vault": { "kicker": "Der Tresor", "headline": "Deine Mails als Dateien, die dir gehören", "sub": "Maildir und .eml, lesbar mit Thunderbird, Apple Mail oder grep. Keine Abhängigkeit." },
+    "premium-time-capsule": { "kicker": "Time Capsule", "headline": "Zurück zu jedem Tag deiner Mails", "sub": "Momentaufnahmen des Tresors, nach deinem Zeitplan gesichert." },
+    "link-safety-modal": { "kicker": "Link-Sicherheit", "headline": "Sieh, wohin ein Link wirklich führt", "sub": "Beide Adressen werden angezeigt, bevor du einen Link öffnest, der nicht zu seinem Text passt." }
+  },
+  "features": [
+    "Gemeinsamer Posteingang",
+    "Chat-Ansicht",
+    "Archivieren, dann löschen",
+    "Der Tresor: .eml in Maildir",
+    "Status pro Nachricht",
+    "Suche über alle Ordner",
+    "Warnungen bei Links",
+    "SPF-, DKIM- und DMARC-Abzeichen",
+    "Senden rückgängig machen",
+    "MBOX-Export",
+    "Time Capsule",
+    "Kein Konto, keine Telemetrie"
+  ],
+  "stat": { "value": "15 ms", "label": "um 50.000 Nachrichten offline zu durchsuchen" }
+}

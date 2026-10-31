@@ -1,0 +1,26 @@
+{
+  "tagline": "Read your mail. Keep your mail.",
+  "slots": {
+    "unified-inbox": { "kicker": "Unified inbox", "headline": "Read your mail. Keep your mail.", "sub": "A full email client that files every message on your own disk as a plain .eml." },
+    "chat-view-chat": { "kicker": "Chat view", "headline": "Threads that read like a conversation", "sub": "Sent and received mail merged into one stream of bubbles." },
+    "archive-progress": { "kicker": "Archive-then-delete", "headline": "Clear the server without losing a thing", "sub": "Archive thousands of messages to the vault, then delete them from the server in one step." },
+    "local-vault": { "kicker": "The vault", "headline": "Your mail, as plain files you own", "sub": "Maildir and .eml, readable by Thunderbird, Apple Mail or grep. No lock-in." },
+    "premium-time-capsule": { "kicker": "Time Capsule", "headline": "Go back to any day in your mail", "sub": "Point-in-time snapshots of the vault, kept on your schedule." },
+    "link-safety-modal": { "kicker": "Link safety", "headline": "See where a link really goes", "sub": "Both addresses shown before you open a link that does not match its text." }
+  },
+  "features": [
+    "Unified inbox",
+    "Chat view",
+    "Archive-then-delete",
+    "The vault: .eml in Maildir",
+    "Per-message state",
+    "Search across every folder",
+    "Link safety warnings",
+    "SPF, DKIM and DMARC badges",
+    "Undo send",
+    "MBOX export",
+    "Time Capsule",
+    "No account, no telemetry"
+  ],
+  "stat": { "value": "15 ms", "label": "to search 50,000 messages, offline" }
+}

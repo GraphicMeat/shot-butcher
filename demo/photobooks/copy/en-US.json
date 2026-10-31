@@ -1,0 +1,51 @@
+{
+  "tagline": "Your photos belong in a book",
+  "slots": {
+    "01-welcome": {
+      "kicker": "PhotoBooks",
+      "headline": "Your photos belong in a book",
+      "sub": "Turn favorite moments into a beautifully arranged photo book, right on your device."
+    },
+    "03-refine-selection": {
+      "kicker": "Selection",
+      "headline": "Keep the moments that tell the story",
+      "sub": "Review a balanced selection, bring favorites back in, and decide exactly what belongs in your book."
+    },
+    "04-smart-layout": {
+      "kicker": "Smart layout",
+      "headline": "A polished first draft in moments",
+      "sub": "PhotoBooks builds balanced pages automatically, so you can begin with a book—not a blank canvas."
+    },
+    "05-photo-tools": {
+      "kicker": "Photo tools",
+      "headline": "Make the moments that matter stand out",
+      "sub": "Emphasize, replace, add, or remove photos with focused controls that stay out of your way."
+    },
+    "08-cover": {
+      "kicker": "Cover",
+      "headline": "Create a cover worth keeping",
+      "sub": "Give your story a memorable opening with a full wraparound cover and editable title."
+    },
+    "10-export": {
+      "kicker": "Export",
+      "headline": "From your device to the printed page",
+      "sub": "Preview finished pages, then export print-ready files for Blurb or a universal PDF."
+    }
+  },
+  "features": [
+    "Albums or folders",
+    "Balanced selection",
+    "Automatic page layouts",
+    "Emphasize and replace",
+    "Precise crop",
+    "Photo tray",
+    "Wraparound cover",
+    "Size and format switch",
+    "Print-ready export",
+    "Blurb or PDF"
+  ],
+  "stat": {
+    "value": "Up to 6",
+    "label": "photos per page, laid out for you"
+  }
+}

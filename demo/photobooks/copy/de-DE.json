@@ -1,0 +1,51 @@
+{
+  "tagline": "Deine Fotos gehören in ein Buch",
+  "slots": {
+    "01-welcome": {
+      "kicker": "PhotoBooks",
+      "headline": "Deine Fotos gehören in ein Buch",
+      "sub": "Mach aus deinen Lieblingsmomenten direkt auf deinem Gerät ein wunderschön gestaltetes Fotobuch."
+    },
+    "03-refine-selection": {
+      "kicker": "Auswahl",
+      "headline": "Die Momente deiner Geschichte",
+      "sub": "Prüfe eine ausgewogene Auswahl, hole Favoriten zurück und entscheide, was in dein Buch gehört."
+    },
+    "04-smart-layout": {
+      "kicker": "Smartes Layout",
+      "headline": "Ein perfekter erster Entwurf in Sekunden",
+      "sub": "PhotoBooks erstellt automatisch ausgewogene Seiten. Du beginnst mit einem Buch, nicht mit einer leeren Fläche."
+    },
+    "05-photo-tools": {
+      "kicker": "Fotowerkzeuge",
+      "headline": "Wichtige Momente groß herausbringen",
+      "sub": "Betone, ersetze, ergänze oder entferne Fotos mit übersichtlichen Werkzeugen."
+    },
+    "08-cover": {
+      "kicker": "Cover",
+      "headline": "Ein Cover, das bleibt",
+      "sub": "Eröffne deine Geschichte mit einem umlaufenden Cover und einem frei bearbeitbaren Titel."
+    },
+    "10-export": {
+      "kicker": "Export",
+      "headline": "Von deinem Gerät auf die gedruckte Seite",
+      "sub": "Prüfe fertige Seiten und exportiere druckbereite Dateien für Blurb oder als universelles PDF."
+    }
+  },
+  "features": [
+    "Alben oder Ordner",
+    "Ausgewogene Auswahl",
+    "Automatische Seitenlayouts",
+    "Betonen und ersetzen",
+    "Präziser Zuschnitt",
+    "Fotoablage",
+    "Umlaufendes Cover",
+    "Größe und Format wechseln",
+    "Druckfertiger Export",
+    "Blurb oder PDF"
+  ],
+  "stat": {
+    "value": "Bis zu 6",
+    "label": "Fotos pro Seite, automatisch angeordnet"
+  }
+}

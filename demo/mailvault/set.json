@@ -1,0 +1,17 @@
+{
+  "app": { "name": "MailVault", "icon": "icon.png", "maker": "Graphic Meat" },
+  "style": "true-bento",
+  "accent": "#7C5CFF",
+  "theme": "dark",
+  "platforms": ["mac"],
+  "locales": ["en-US", "de-DE", "ja"],
+  "capture": "raw/{platform}/{theme}/{id}.webp",
+  "slots": [
+    { "id": "unified-inbox", "role": "hero" },
+    { "id": "chat-view-chat", "role": "feature" },
+    { "id": "archive-progress", "role": "feature" },
+    { "id": "local-vault", "role": "feature" },
+    { "id": "premium-time-capsule", "role": "feature" },
+    { "id": "link-safety-modal", "role": "closer" }
+  ]
+}

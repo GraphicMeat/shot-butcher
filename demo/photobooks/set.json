@@ -1,0 +1,17 @@
+{
+  "app": { "name": "PhotoBooks", "icon": "icon.png", "maker": "Graphic Meat" },
+  "style": "true-bento",
+  "accent": "#E8603C",
+  "theme": "light",
+  "platforms": ["iphone", "ipad"],
+  "locales": ["en-US", "de-DE", "ja"],
+  "capture": "raw/{platform}/{locale}/{id}.webp",
+  "slots": [
+    { "id": "01-welcome", "role": "hero" },
+    { "id": "03-refine-selection", "role": "feature" },
+    { "id": "04-smart-layout", "role": "feature" },
+    { "id": "05-photo-tools", "role": "feature" },
+    { "id": "08-cover", "role": "feature" },
+    { "id": "10-export", "role": "closer" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "tagline": "メールを読む。メールを残す。",
+  "slots": {
+    "unified-inbox": { "kicker": "統合受信箱", "headline": "メールを読む。メールを残す。", "sub": "すべてのメッセージを、自分のディスクに .eml ファイルとして保存するメールクライアント。" },
+    "chat-view-chat": { "kicker": "チャット表示", "headline": "スレッドを会話のように読む", "sub": "送信と受信のメールを、ひとつの吹き出しの流れにまとめます。" },
+    "archive-progress": { "kicker": "アーカイブしてから削除", "headline": "何も失わずにサーバーを空にする", "sub": "数千件のメッセージを保管庫にアーカイブし、ワンステップでサーバーから削除。" },
+    "local-vault": { "kicker": "保管庫", "headline": "メールを自分のファイルとして持つ", "sub": "Maildir と .eml。Thunderbird、Apple Mail、grep で読めます。" },
+    "premium-time-capsule": { "kicker": "Time Capsule", "headline": "どの日のメールにも戻れる", "sub": "保管庫のスナップショットを、決めたスケジュールで保存。" },
+    "link-safety-modal": { "kicker": "リンクの安全性", "headline": "リンクの本当の行き先を確認", "sub": "表示と異なるリンクを開く前に、両方のアドレスを表示します。" }
+  },
+  "features": [
+    "統合受信箱",
+    "チャット表示",
+    "アーカイブしてから削除",
+    "保管庫: Maildir の .eml",
+    "メッセージごとの状態",
+    "全フォルダ検索",
+    "リンクの警告",
+    "SPF・DKIM・DMARC 表示",
+    "送信の取り消し",
+    "MBOX 書き出し",
+    "Time Capsule",
+    "アカウント不要、テレメトリなし"
+  ],
+  "stat": { "value": "15 ms", "label": "5万件のメッセージをオフラインで検索" }
+}
