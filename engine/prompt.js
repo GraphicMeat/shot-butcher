@@ -3,17 +3,19 @@
 const KEYS = ['style', 'theme', 'accent', 'platforms', 'locales'];
 
 export function toPrompt({ style, theme, accent, platforms, locales }, summary) {
-  const parts = [`/shot-butcher style=${style}`, `theme=${theme}`, `accent=${accent}`];
+  const parts = [`shot-butcher style=${style}`, `theme=${theme}`, `accent=${accent}`];
   if (platforms?.length) parts.push(`platforms=${platforms.join(',')}`);
   if (locales?.length) parts.push(`locales=${locales.join(',')}`);
   return summary ? `${parts.join(' ')}\n${summary}` : parts.join(' ');
 }
 
 export function parsePrompt(text) {
-  const line = String(text).split('\n').find(l => l.trim().startsWith('/shot-butcher'));
-  if (!line) throw new Error('no /shot-butcher line in prompt');
+  // Plain "shot-butcher style=..." is canonical (pastes into any chat); slash forms are accepted too.
+  const PREFIX = /^\/?shot-butcher(:shot-butcher)?\s/;
+  const line = String(text).split('\n').map(l => l.trim()).find(l => PREFIX.test(l));
+  if (!line) throw new Error('no shot-butcher line in prompt');
   const out = {};
-  for (const token of line.trim().split(/\s+/).slice(1)) {
+  for (const token of line.split(/\s+/).slice(1)) {
     const eq = token.indexOf('=');
     if (eq < 1) continue;
     const key = token.slice(0, eq);

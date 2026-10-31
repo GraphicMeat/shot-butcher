@@ -1,6 +1,6 @@
 ---
 name: shot-butcher
-description: Capture and compose App Store screenshots for iPhone, iPad and Mac in one of 25 named styles (true-bento, panorama, editorial-serif, aurora-dark, ...), locked across every shot, device and locale. Use when the user wants App Store / Mac App Store screenshots, store marketing images, a screenshot style from the shot-butcher gallery, or pastes a "/shot-butcher style=..." prompt.
+description: Capture and compose App Store screenshots for iPhone, iPad and Mac in one of 25 named styles (true-bento, panorama, editorial-serif, aurora-dark, ...), locked across every shot, device and locale. Use when the user wants App Store / Mac App Store screenshots, store marketing images, a screenshot style from the shot-butcher gallery, or pastes a "shot-butcher style=..." prompt line.
 ---
 
 # shot-butcher
@@ -14,7 +14,7 @@ in `ROOT` (Playwright Chromium: `npx playwright install chromium`).
 ## Inputs you need
 
 1. **Style prompt** (optional). A line like
-   `/shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac`.
+   `shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac` (a leading `/` is accepted too).
    Parse it with `engine/prompt.js` `parsePrompt()`. Keys: `style theme accent platforms locales`.
    No prompt: show the gallery (`npm run serve`, open `/site/`) or `references/styles.md` and let the
    user pick. Never invent a style id; the list is `engine/styles/index.js` `STYLE_IDS`.

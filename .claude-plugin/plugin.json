@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "App Store screenshots for iPhone, iPad and Mac in 25 styles, reproducible from a one-line prompt.",
   "author": { "name": "Graphic Meat", "url": "https://graphicmeat.com" },
-  "homepage": "https://graphicmeat.com/shot-butcher/",
+  "homepage": "https://github.com/GraphicMeat/shot-butcher",
   "repository": "https://github.com/GraphicMeat/shot-butcher",
   "license": "MIT"
 }

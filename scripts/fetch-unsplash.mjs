@@ -25,9 +25,9 @@ const rows = photos.map((p, i) =>
   `| unsplash_${String(i).padStart(2, '0')}.jpg | [${p.name}](https://unsplash.com/@${p.user}) | [photo](${p.page}) |`);
 await writeFile(join(root, 'demo/photos/CREDITS.md'), `# Demo photo credits
 
-Photos shown in the PhotoBooks demo captures come from [Unsplash](https://unsplash.com)
-under the [Unsplash License](https://unsplash.com/license). Files are not stored in this
-repo; \`node scripts/fetch-unsplash.mjs <dir>\` downloads them.
+Demo photo library for re-capturing the PhotoBooks demo screens, from [Unsplash](https://unsplash.com) under the
+[Unsplash License](https://unsplash.com/license). Files are not stored in this repo;
+\`node scripts/fetch-unsplash.mjs <dir>\` downloads them.
 
 | File | Photographer | Source |
 |---|---|---|

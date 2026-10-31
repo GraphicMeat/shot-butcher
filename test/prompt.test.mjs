@@ -4,18 +4,20 @@ import { toPrompt, parsePrompt, resolveSet } from '../engine/prompt.js';
 
 test('toPrompt and parsePrompt round-trip every field', () => {
   const p = toPrompt({ style: 'swiss-grid', theme: 'light', accent: '#112233', platforms: ['iphone', 'ipad'], locales: ['en-US', 'ja'] }, 'A summary.');
-  assert.equal(p, '/shot-butcher style=swiss-grid theme=light accent=#112233 platforms=iphone,ipad locales=en-US,ja\nA summary.');
+  assert.equal(p, 'shot-butcher style=swiss-grid theme=light accent=#112233 platforms=iphone,ipad locales=en-US,ja\nA summary.');
   assert.deepEqual(parsePrompt(p), { style: 'swiss-grid', theme: 'light', accent: '#112233', platforms: ['iphone', 'ipad'], locales: ['en-US', 'ja'] });
 });
 
 test('parsePrompt finds the command line inside surrounding prose', () => {
-  assert.deepEqual(parsePrompt('Make my shots like this:\n  /shot-butcher style=brutalist theme=dark accent=#FF0000\nthanks'),
+  assert.deepEqual(parsePrompt('Make my shots like this:\n  shot-butcher style=brutalist theme=dark accent=#FF0000\nthanks'),
     { style: 'brutalist', theme: 'dark', accent: '#FF0000' });
+  assert.equal(parsePrompt('/shot-butcher style=brutalist').style, 'brutalist');
+  assert.equal(parsePrompt('/shot-butcher:shot-butcher style=brutalist').style, 'brutalist');
 });
 
 test('parsePrompt rejects bad input with a clear message', () => {
-  assert.throws(() => parsePrompt('style=true-bento'), /no \/shot-butcher line/);
-  assert.throws(() => parsePrompt('/shot-butcher theme=dark'), /no style=/);
+  assert.throws(() => parsePrompt('style=true-bento'), /no shot-butcher line/);
+  assert.throws(() => parsePrompt('shot-butcher theme=dark'), /no style=/);
   assert.throws(() => parsePrompt('/shot-butcher style=x theme=sepia'), /theme must be light or dark/);
   assert.throws(() => parsePrompt('/shot-butcher style=x accent=red'), /accent must be #rrggbb/);
   assert.throws(() => parsePrompt('/shot-butcher style=x colour=#fff'), /unknown prompt key "colour"/);

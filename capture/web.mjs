@@ -5,7 +5,8 @@
 // shots.json:
 // {
 //   "baseUrl": "http://127.0.0.1:5173/demo/",
-//   "viewport": { "width": 1440, "height": 900 },   // CSS px; output is 2x
+//   "viewport": { "width": 1440, "height": 900 },   // CSS px
+//   "scale": 2,                                      // device pixel ratio (iPhone 6.9": 440x956 at 3 = 1320x2868)
 //   "platform": "mac",
 //   "themes": ["dark", "light"],                     // optional; sets prefers-color-scheme per pass
 //   "shots": [
@@ -27,7 +28,7 @@ const out = outIdx > 0 ? process.argv[outIdx + 1] : join(dirname(resolve(file)),
 const browser = await chromium.launch();
 try {
   for (const theme of cfg.themes ?? ['light']) {
-    const ctx = await browser.newContext({ viewport: cfg.viewport, deviceScaleFactor: 2, colorScheme: theme, reducedMotion: 'reduce' });
+    const ctx = await browser.newContext({ viewport: cfg.viewport, deviceScaleFactor: cfg.scale ?? 2, colorScheme: theme, reducedMotion: 'reduce' });
     const page = await ctx.newPage();
     for (const shot of cfg.shots) {
       await page.goto(new URL(shot.path ?? '', cfg.baseUrl).href, { waitUntil: 'networkidle' });

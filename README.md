@@ -4,10 +4,10 @@ App Store screenshots for iPhone, iPad and Mac in 25 styles. One style holds acr
 device and locale of a set, and every style is reproducible from a one-line prompt:
 
 ```
-/shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac
+shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac
 ```
 
-Preview all 25 styles on real apps: https://graphicmeat.com/shot-butcher/ (or locally, below).
+Preview all 25 styles on real apps with the local gallery (below).
 
 ## Install the Claude Code skill
 
@@ -26,7 +26,7 @@ product docs, and renders the set.
 npm install
 npx playwright install chromium
 node render/render.mjs demo/mailvault/set.json --style aurora-dark     # out/mailvault/aurora-dark/...
-node render/render.mjs path/to/set.json --prompt "/shot-butcher style=swiss-grid theme=light accent=#D93A1F"
+node render/render.mjs path/to/set.json --prompt "shot-butcher style=swiss-grid theme=light accent=#D93A1F"
 ```
 
 Output is PNG at accepted App Store sizes (Mac 2880x1800, iPhone 6.9" 1320x2868, iPad 13" 2064x2752),
@@ -56,9 +56,9 @@ Adding a style: [style contract](skills/shot-butcher/references/style-contract.m
 
 ## Credits
 
-Demo apps MailVault and PhotoBooks by [Graphic Meat](https://graphicmeat.com). Photos in the PhotoBooks
-captures are from Unsplash, see [demo/photos/CREDITS.md](demo/photos/CREDITS.md). Fonts are OFL,
-bundled through Fontsource.
+Demo apps MailVault and PhotoBooks by [Graphic Meat](https://graphicmeat.com). The Unsplash photo set
+for the PhotoBooks demo library is listed in [demo/photos/CREDITS.md](demo/photos/CREDITS.md). Fonts are
+OFL, bundled through Fontsource.
 
 ## License
 

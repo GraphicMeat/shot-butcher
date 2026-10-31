@@ -1,6 +1,10 @@
 {
   "name": "shot-butcher",
-  "owner": { "name": "Graphic Meat", "url": "https://graphicmeat.com" },
+  "description": "App Store screenshot styles for iPhone, iPad and Mac, by Graphic Meat.",
+  "owner": {
+    "name": "Graphic Meat",
+    "url": "https://graphicmeat.com"
+  },
   "plugins": [
     {
       "name": "shot-butcher",

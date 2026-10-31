@@ -4,6 +4,7 @@
 //   node render/render.mjs <set.json> [--style ID|all] [--platform P|all] [--locale L|all] [--slot N]
 //                          [--theme light|dark] [--accent #rrggbb] [--prompt "<prompt text>"] [--out DIR] [--jobs N]
 import { readFile, mkdir } from 'node:fs/promises';
+import { realpathSync } from 'node:fs';
 import { join, relative, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -14,7 +15,18 @@ import { STYLE_IDS } from '../engine/styles/index.js';
 import { parsePrompt } from '../engine/prompt.js';
 
 export async function startRenderer({ jobs = 4 } = {}) {
-  const server = await serve(0);
+  const mounts = new Map();
+  const server = await serve(0, ROOT, mounts);
+  // URL of a set.json: repo-relative when inside the repo, else its directory is mounted under /@set/<id>/.
+  const setUrl = setPath => {
+    const abs = realpathSync(setPath);
+    const rel = relative(realpathSync(ROOT), abs);
+    if (!rel.startsWith('..')) return '/' + rel;
+    const dir = dirname(abs);
+    let id = [...mounts].find(([, d]) => d === dir)?.[0];
+    if (!id) { id = String(mounts.size + 1); mounts.set(id, dir); }
+    return `/@set/${id}/${basename(abs)}`;
+  };
   const browser = await chromium.launch();
   const context = await browser.newContext({ deviceScaleFactor: 1 });
   const base = `http://127.0.0.1:${server.address().port}`;
@@ -35,7 +47,7 @@ export async function startRenderer({ jobs = 4 } = {}) {
     try {
       const { W, H } = PLATFORMS[platform];
       await page.setViewportSize({ width: W, height: H });
-      const params = new URLSearchParams({ set: '/' + relative(ROOT, setPath), platform, locale, slot: String(slot) });
+      const params = new URLSearchParams({ set: setUrl(setPath), platform, locale, slot: String(slot) });
       if (prompt) params.set('prompt', prompt);
       if (style) params.set('style', style);
       if (theme) params.set('theme', theme);
@@ -81,7 +93,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const locales = pick('--locale', set.locales, fromPrompt.locales ?? set.locales);
   const slots = arg('--slot') ? [Number(arg('--slot'))] : set.slots.map((_, i) => i);
   if (set.slots.length > MAX_SLOTS) throw new Error(`App Store allows ${MAX_SLOTS} screenshots per device`);
-  const out = arg('--out', join(ROOT, 'out', basename(dirname(setPath))));
+  const out = arg('--out', join(ROOT, 'out', basename(dirname(realpathSync(setPath)))));
   const r = await startRenderer({ jobs: Number(arg('--jobs', 4)) });
   const tasks = [];
   let warned = 0;

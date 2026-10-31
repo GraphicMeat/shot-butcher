@@ -111,7 +111,7 @@ footer { padding: 40px 0 64px; border-top: 1px solid var(--line); color: var(--m
   <main>${sections}
   </main>
   <footer>
-    <p>Demo apps: <a href="https://mailvaultapp.com">MailVault</a> (Mac) and PhotoBooks (iPhone, iPad), both by <a href="https://graphicmeat.com">Graphic Meat</a>. Photos in the PhotoBooks captures are from Unsplash, <a href="${REPO}/blob/main/demo/photos/CREDITS.md">credited here</a>.</p>
+    <p>Demo apps: <a href="https://mailvaultapp.com">MailVault</a> (Mac) and PhotoBooks (iPhone, iPad), both by <a href="https://graphicmeat.com">Graphic Meat</a>.</p>
     <p>Source, skill and renderer: <a href="${REPO}">github.com/GraphicMeat/shot-butcher</a>.</p>
   </footer>
 </div>

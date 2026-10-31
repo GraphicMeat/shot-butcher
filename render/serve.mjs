@@ -13,12 +13,14 @@ const TYPES = {
   '.woff2': 'font/woff2', '.woff': 'font/woff', '.txt': 'text/plain', '.xml': 'application/xml',
 };
 
-export function serve(port = 4870, root = ROOT) {
+// mounts: Map id -> absolute dir, served at /@set/<id>/ (sets that live outside this repo).
+export function serve(port = 4870, root = ROOT, mounts = new Map()) {
   const server = createServer((req, res) => {
     let path;
     try { path = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)); } catch { res.writeHead(400).end(); return; }
     if (path.includes('..')) { res.writeHead(400).end(); return; }
-    let file = join(root, path);
+    const m = path.match(/^\/@set\/(\d+)(\/.*)$/);
+    let file = m && mounts.has(m[1]) ? join(mounts.get(m[1]), m[2]) : join(root, path);
     try { if (statSync(file).isDirectory()) file = join(file, 'index.html'); statSync(file); }
     catch { res.writeHead(404).end('not found'); return; }
     res.writeHead(200, { 'content-type': TYPES[extname(file)] ?? 'application/octet-stream', 'cache-control': 'no-store' });
