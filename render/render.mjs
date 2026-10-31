@@ -25,7 +25,12 @@ export async function startRenderer({ jobs = 4 } = {}) {
   const give = p => waiters.length ? waiters.shift()(p) : free.push(p);
 
   // Renders one screenshot; returns { buffer (flattened PNG), meta, warnings }.
-  async function renderOne({ setPath, platform, locale, slot, style, theme, accent, prompt }) {
+  // One retry: under heavy parallel load Chromium occasionally drops an image load or stalls.
+  async function renderOne(job) {
+    try { return await renderAttempt(job); } catch { return renderAttempt(job); }
+  }
+
+  async function renderAttempt({ setPath, platform, locale, slot, style, theme, accent, prompt }) {
     const page = await take();
     try {
       const { W, H } = PLATFORMS[platform];

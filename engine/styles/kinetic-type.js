@@ -74,7 +74,7 @@ export default {
         <div class="kicker" data-fit="1"><i></i>${esc(slot.kicker)}</div>
         <div class="sub" data-fit="2">${esc(slot.sub)}</div>
       </div>
-      <div class="type"><h1 data-fit="">${h1}</h1></div>
+      <div class="type" data-overlap-ok><h1 data-fit="">${h1}</h1></div>
       <div class="dev" style="top:${g.top}px">${ctx.device({ width: g.w })}</div>`;
   },
 };

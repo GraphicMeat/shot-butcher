@@ -25,6 +25,7 @@ export default {
 .sb-${id} .big { display: flex; flex-direction: column; padding: ${k(2.4)}px ${k(2.4)}px 0; }
 .sb-${id} .kicker { font: 600 ${k(1.05)}px/1.2 var(--font-text); letter-spacing: .02em; color: var(--accent); text-transform: uppercase; }
 .sb-${id} h1 { font: 800 ${k(2.9)}px/1.04 var(--font-display); letter-spacing: -.025em; margin-top: ${k(.7)}px; max-width: 92%; }
+.sb-${id}.sb-iphone h1 { font-size: ${u(7)}px; }
 .sb-${id} .sub { font: 400 ${k(1.2)}px/1.35 var(--font-text); color: var(--muted); margin-top: ${k(.8)}px; max-width: 88%; }
 .sb-${id} .stage { flex: 1; position: relative; margin-top: ${k(1.8)}px; }
 .sb-${id} .stage > .sb-device { position: absolute; left: 50%; top: 0; transform: translateX(-50%); }

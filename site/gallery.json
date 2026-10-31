@@ -1,0 +1,1127 @@
+[
+  {
+    "style": "true-bento",
+    "name": "True Bento",
+    "summary": "Rounded tile grid: capture in the big tile, app identity and stat tiles, every feature as its own small tile.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac\nRounded tile grid: capture in the big tile, app identity and stat tiles, every feature as its own small tile.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "true-bento",
+    "name": "True Bento",
+    "summary": "Rounded tile grid: capture in the big tile, app identity and stat tiles, every feature as its own small tile.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=true-bento theme=light accent=#E8603C platforms=iphone,ipad\nRounded tile grid: capture in the big tile, app identity and stat tiles, every feature as its own small tile.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "headline-top",
+    "name": "Headline Top",
+    "summary": "Centred kicker, headline and sub on a soft accent-tinted canvas; the device sits below and bleeds off the bottom edge.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=headline-top theme=dark accent=#7C5CFF platforms=mac\nCentred kicker, headline and sub on a soft accent-tinted canvas; the device sits below and bleeds off the bottom edge.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "headline-top",
+    "name": "Headline Top",
+    "summary": "Centred kicker, headline and sub on a soft accent-tinted canvas; the device sits below and bleeds off the bottom edge.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=headline-top theme=light accent=#E8603C platforms=iphone,ipad\nCentred kicker, headline and sub on a soft accent-tinted canvas; the device sits below and bleeds off the bottom edge.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "bleed-top",
+    "name": "Bleed Top",
+    "summary": "Device drops in from the top edge over a solid accent panel; a heavy left-aligned caption block is anchored to the bottom.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=bleed-top theme=dark accent=#7C5CFF platforms=mac\nDevice drops in from the top edge over a solid accent panel; a heavy left-aligned caption block is anchored to the bottom.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "bleed-top",
+    "name": "Bleed Top",
+    "summary": "Device drops in from the top edge over a solid accent panel; a heavy left-aligned caption block is anchored to the bottom.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=bleed-top theme=light accent=#E8603C platforms=iphone,ipad\nDevice drops in from the top edge over a solid accent panel; a heavy left-aligned caption block is anchored to the bottom.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "panorama",
+    "name": "Panorama",
+    "summary": "One continuous strip across the set: a flowing accent ribbon runs through every seam and alternate devices straddle the seam into the next shot.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=panorama theme=dark accent=#7C5CFF platforms=mac\nOne continuous strip across the set: a flowing accent ribbon runs through every seam and alternate devices straddle the seam into the next shot.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "panorama",
+    "name": "Panorama",
+    "summary": "One continuous strip across the set: a flowing accent ribbon runs through every seam and alternate devices straddle the seam into the next shot.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=panorama theme=light accent=#E8603C platforms=iphone,ipad\nOne continuous strip across the set: a flowing accent ribbon runs through every seam and alternate devices straddle the seam into the next shot.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "tilted-3d",
+    "name": "Tilted 3D",
+    "summary": "Device standing in perspective on a floor plane with a long soft cast shadow; serif headline left on Mac, on top on iPhone and iPad; tilt alternates per shot.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=tilted-3d theme=dark accent=#7C5CFF platforms=mac\nDevice standing in perspective on a floor plane with a long soft cast shadow; serif headline left on Mac, on top on iPhone and iPad; tilt alternates per shot.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "tilted-3d",
+    "name": "Tilted 3D",
+    "summary": "Device standing in perspective on a floor plane with a long soft cast shadow; serif headline left on Mac, on top on iPhone and iPad; tilt alternates per shot.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=tilted-3d theme=light accent=#E8603C platforms=iphone,ipad\nDevice standing in perspective on a floor plane with a long soft cast shadow; serif headline left on Mac, on top on iPhone and iPad; tilt alternates per shot.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "zoom-callout",
+    "name": "Zoom Callout",
+    "summary": "Device at a moderate size with a circular loupe magnifying one region of the screen, joined to it by a soft tangent cone; serif headline.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=zoom-callout theme=dark accent=#7C5CFF platforms=mac\nDevice at a moderate size with a circular loupe magnifying one region of the screen, joined to it by a soft tangent cone; serif headline.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "zoom-callout",
+    "name": "Zoom Callout",
+    "summary": "Device at a moderate size with a circular loupe magnifying one region of the screen, joined to it by a soft tangent cone; serif headline.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=zoom-callout theme=light accent=#E8603C platforms=iphone,ipad\nDevice at a moderate size with a circular loupe magnifying one region of the screen, joined to it by a soft tangent cone; serif headline.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "exploded-ui",
+    "name": "Exploded UI",
+    "summary": "Device with two or three pieces of its own screen lifted out as floating, shadowed cards that slide over the frame edge, leaving tinted sockets behind.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=exploded-ui theme=dark accent=#7C5CFF platforms=mac\nDevice with two or three pieces of its own screen lifted out as floating, shadowed cards that slide over the frame edge, leaving tinted sockets behind.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "exploded-ui",
+    "name": "Exploded UI",
+    "summary": "Device with two or three pieces of its own screen lifted out as floating, shadowed cards that slide over the frame edge, leaving tinted sockets behind.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=exploded-ui theme=light accent=#E8603C platforms=iphone,ipad\nDevice with two or three pieces of its own screen lifted out as floating, shadowed cards that slide over the frame edge, leaving tinted sockets behind.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "full-bleed",
+    "name": "Full Bleed",
+    "summary": "The capture fills the canvas edge to edge; kicker, headline and sub sit on a frosted glass bar (bottom on Mac, top on iPhone and iPad).",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=full-bleed theme=dark accent=#7C5CFF platforms=mac\nThe capture fills the canvas edge to edge; kicker, headline and sub sit on a frosted glass bar (bottom on Mac, top on iPhone and iPad).",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "full-bleed",
+    "name": "Full Bleed",
+    "summary": "The capture fills the canvas edge to edge; kicker, headline and sub sit on a frosted glass bar (bottom on Mac, top on iPhone and iPad).",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=full-bleed theme=light accent=#E8603C platforms=iphone,ipad\nThe capture fills the canvas edge to edge; kicker, headline and sub sit on a frosted glass bar (bottom on Mac, top on iPhone and iPad).",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "split-duo",
+    "name": "Split Duo",
+    "summary": "Centred headline over two staggered, overlapping devices on a rounded plinth: Mac pairs the dark and light versions of one screen, iPhone and iPad pair this screen with the next.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=split-duo theme=dark accent=#7C5CFF platforms=mac\nCentred headline over two staggered, overlapping devices on a rounded plinth: Mac pairs the dark and light versions of one screen, iPhone and iPad pair this screen with the next.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "split-duo",
+    "name": "Split Duo",
+    "summary": "Centred headline over two staggered, overlapping devices on a rounded plinth: Mac pairs the dark and light versions of one screen, iPhone and iPad pair this screen with the next.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=split-duo theme=light accent=#E8603C platforms=iphone,ipad\nCentred headline over two staggered, overlapping devices on a rounded plinth: Mac pairs the dark and light versions of one screen, iPhone and iPad pair this screen with the next.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "kinetic-type",
+    "name": "Kinetic Type",
+    "summary": "Giant, tightly-leaded uppercase headline fills the canvas behind the device, which rises from the bottom edge over the last line; words alternate solid ink, outline and accent.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=kinetic-type theme=dark accent=#7C5CFF platforms=mac\nGiant, tightly-leaded uppercase headline fills the canvas behind the device, which rises from the bottom edge over the last line; words alternate solid ink, outline and accent.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "kinetic-type",
+    "name": "Kinetic Type",
+    "summary": "Giant, tightly-leaded uppercase headline fills the canvas behind the device, which rises from the bottom edge over the last line; words alternate solid ink, outline and accent.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=kinetic-type theme=light accent=#E8603C platforms=iphone,ipad\nGiant, tightly-leaded uppercase headline fills the canvas behind the device, which rises from the bottom edge over the last line; words alternate solid ink, outline and accent.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "editorial-serif",
+    "name": "Editorial Serif",
+    "summary": "Magazine spread: paper ground, tracked kicker with a hairline rule and a \"01 / 06\" folio, big serif headline ending in accent italic, capture as a keylined photo plate.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=editorial-serif theme=dark accent=#7C5CFF platforms=mac\nMagazine spread: paper ground, tracked kicker with a hairline rule and a \"01 / 06\" folio, big serif headline ending in accent italic, capture as a keylined photo plate.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "editorial-serif",
+    "name": "Editorial Serif",
+    "summary": "Magazine spread: paper ground, tracked kicker with a hairline rule and a \"01 / 06\" folio, big serif headline ending in accent italic, capture as a keylined photo plate.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=editorial-serif theme=light accent=#E8603C platforms=iphone,ipad\nMagazine spread: paper ground, tracked kicker with a hairline rule and a \"01 / 06\" folio, big serif headline ending in accent italic, capture as a keylined photo plate.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "swiss-grid",
+    "name": "Swiss Grid",
+    "summary": "International Typographic Style: visible column grid, label row over a heavy rule, huge slot index, accent rule bars, flush-left headline, device locked to grid columns.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=swiss-grid theme=dark accent=#7C5CFF platforms=mac\nInternational Typographic Style: visible column grid, label row over a heavy rule, huge slot index, accent rule bars, flush-left headline, device locked to grid columns.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "swiss-grid",
+    "name": "Swiss Grid",
+    "summary": "International Typographic Style: visible column grid, label row over a heavy rule, huge slot index, accent rule bars, flush-left headline, device locked to grid columns.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=swiss-grid theme=light accent=#E8603C platforms=iphone,ipad\nInternational Typographic Style: visible column grid, label row over a heavy rule, huge slot index, accent rule bars, flush-left headline, device locked to grid columns.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "brutalist",
+    "name": "Brutalist",
+    "summary": "Loud flat background, huge uppercase Archivo Black in thick-bordered blocks with hard offset shadows, square slab-framed capture and a tilted feature ticker.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=brutalist theme=dark accent=#7C5CFF platforms=mac\nLoud flat background, huge uppercase Archivo Black in thick-bordered blocks with hard offset shadows, square slab-framed capture and a tilted feature ticker.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "brutalist",
+    "name": "Brutalist",
+    "summary": "Loud flat background, huge uppercase Archivo Black in thick-bordered blocks with hard offset shadows, square slab-framed capture and a tilted feature ticker.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=brutalist theme=light accent=#E8603C platforms=iphone,ipad\nLoud flat background, huge uppercase Archivo Black in thick-bordered blocks with hard offset shadows, square slab-framed capture and a tilted feature ticker.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "minimal-mono",
+    "name": "Minimal Mono",
+    "summary": "Monochrome field with lots of whitespace, a small floating device and one short Instrument Sans caption; the accent is only a tiny dot.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=minimal-mono theme=dark accent=#7C5CFF platforms=mac\nMonochrome field with lots of whitespace, a small floating device and one short Instrument Sans caption; the accent is only a tiny dot.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "minimal-mono",
+    "name": "Minimal Mono",
+    "summary": "Monochrome field with lots of whitespace, a small floating device and one short Instrument Sans caption; the accent is only a tiny dot.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=minimal-mono theme=light accent=#E8603C platforms=iphone,ipad\nMonochrome field with lots of whitespace, a small floating device and one short Instrument Sans caption; the accent is only a tiny dot.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "liquid-glass",
+    "name": "Liquid Glass",
+    "summary": "Background is the capture itself, enlarged and heavily blurred; caption on a frosted translucent glass card with a bright highlight edge; device floats on top overlapping the card.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=liquid-glass theme=dark accent=#7C5CFF platforms=mac\nBackground is the capture itself, enlarged and heavily blurred; caption on a frosted translucent glass card with a bright highlight edge; device floats on top overlapping the card.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "liquid-glass",
+    "name": "Liquid Glass",
+    "summary": "Background is the capture itself, enlarged and heavily blurred; caption on a frosted translucent glass card with a bright highlight edge; device floats on top overlapping the card.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=liquid-glass theme=light accent=#E8603C platforms=iphone,ipad\nBackground is the capture itself, enlarged and heavily blurred; caption on a frosted translucent glass card with a bright highlight edge; device floats on top overlapping the card.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "aurora-dark",
+    "name": "Aurora Dark",
+    "summary": "Near-black sky with aurora curtains in the accent and its complementary hue, a coloured glow pooled under an off-centre device, light flush-left type.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=aurora-dark theme=dark accent=#7C5CFF platforms=mac\nNear-black sky with aurora curtains in the accent and its complementary hue, a coloured glow pooled under an off-centre device, light flush-left type.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "aurora-dark",
+    "name": "Aurora Dark",
+    "summary": "Near-black sky with aurora curtains in the accent and its complementary hue, a coloured glow pooled under an off-centre device, light flush-left type.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "dark",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=aurora-dark theme=dark accent=#E8603C platforms=iphone,ipad\nNear-black sky with aurora curtains in the accent and its complementary hue, a coloured glow pooled under an off-centre device, light flush-left type.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "spotlight",
+    "name": "Spotlight",
+    "summary": "Black stage, one soft cone of light from the top onto a centred device, a pool of light and faint floor reflection beneath, light airy headline in the beam.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=spotlight theme=dark accent=#7C5CFF platforms=mac\nBlack stage, one soft cone of light from the top onto a centred device, a pool of light and faint floor reflection beneath, light airy headline in the beam.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "spotlight",
+    "name": "Spotlight",
+    "summary": "Black stage, one soft cone of light from the top onto a centred device, a pool of light and faint floor reflection beneath, light airy headline in the beam.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "dark",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=spotlight theme=dark accent=#E8603C platforms=iphone,ipad\nBlack stage, one soft cone of light from the top onto a centred device, a pool of light and faint floor reflection beneath, light airy headline in the beam.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "blueprint",
+    "name": "Blueprint",
+    "summary": "Technical drawing on a fine grid: outlined device with dashed contour and centre line, dimension lines labelled with the kicker and app name, mono leader-line callouts naming features.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=blueprint theme=dark accent=#7C5CFF platforms=mac\nTechnical drawing on a fine grid: outlined device with dashed contour and centre line, dimension lines labelled with the kicker and app name, mono leader-line callouts naming features.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "blueprint",
+    "name": "Blueprint",
+    "summary": "Technical drawing on a fine grid: outlined device with dashed contour and centre line, dimension lines labelled with the kicker and app name, mono leader-line callouts naming features.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=blueprint theme=light accent=#E8603C platforms=iphone,ipad\nTechnical drawing on a fine grid: outlined device with dashed contour and centre line, dimension lines labelled with the kicker and app name, mono leader-line callouts naming features.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "annotated-sketch",
+    "name": "Annotated Sketch",
+    "summary": "Dot-grid notebook paper, clean Fraunces headline, device on the right and handwritten Caveat margin notes on the left with wobbly hand-drawn accent arrows pointing into the UI.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=annotated-sketch theme=dark accent=#7C5CFF platforms=mac\nDot-grid notebook paper, clean Fraunces headline, device on the right and handwritten Caveat margin notes on the left with wobbly hand-drawn accent arrows pointing into the UI.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "annotated-sketch",
+    "name": "Annotated Sketch",
+    "summary": "Dot-grid notebook paper, clean Fraunces headline, device on the right and handwritten Caveat margin notes on the left with wobbly hand-drawn accent arrows pointing into the UI.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=annotated-sketch theme=light accent=#E8603C platforms=iphone,ipad\nDot-grid notebook paper, clean Fraunces headline, device on the right and handwritten Caveat margin notes on the left with wobbly hand-drawn accent arrows pointing into the UI.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "checklist",
+    "name": "Checklist",
+    "summary": "Headline over a ticked checklist of every feature, hand-drawn accent checks breaking out of their boxes; device beside it on Mac, bleeding off the bottom on iPhone and iPad.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=checklist theme=dark accent=#7C5CFF platforms=mac\nHeadline over a ticked checklist of every feature, hand-drawn accent checks breaking out of their boxes; device beside it on Mac, bleeding off the bottom on iPhone and iPad.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "checklist",
+    "name": "Checklist",
+    "summary": "Headline over a ticked checklist of every feature, hand-drawn accent checks breaking out of their boxes; device beside it on Mac, bleeding off the bottom on iPhone and iPad.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=checklist theme=light accent=#E8603C platforms=iphone,ipad\nHeadline over a ticked checklist of every feature, hand-drawn accent checks breaking out of their boxes; device beside it on Mac, bleeding off the bottom on iPhone and iPad.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "color-sequence",
+    "name": "Color Sequence",
+    "summary": "Identical centred layout on every shot, each on the next flat colour of a six-step hue sequence from the accent, with a chip row marking its place; ink flips per colour for contrast; dark theme adds a tinted glow behind the device.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=color-sequence theme=dark accent=#7C5CFF platforms=mac\nIdentical centred layout on every shot, each on the next flat colour of a six-step hue sequence from the accent, with a chip row marking its place; ink flips per colour for contrast; dark theme adds a tinted glow behind the device.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "color-sequence",
+    "name": "Color Sequence",
+    "summary": "Identical centred layout on every shot, each on the next flat colour of a six-step hue sequence from the accent, with a chip row marking its place; ink flips per colour for contrast; dark theme adds a tinted glow behind the device.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=color-sequence theme=light accent=#E8603C platforms=iphone,ipad\nIdentical centred layout on every shot, each on the next flat colour of a six-step hue sequence from the accent, with a chip row marking its place; ink flips per colour for contrast; dark theme adds a tinted glow behind the device.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "risograph",
+    "name": "Risograph",
+    "summary": "Two-ink riso print on warm paper: accent plus a dark second ink, grain, stepped halftone dot fields, an off-register accent overprint on the poster headline and the device on an offset accent plate.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "light",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=risograph theme=light accent=#7C5CFF platforms=mac\nTwo-ink riso print on warm paper: accent plus a dark second ink, grain, stepped halftone dot fields, an off-register accent overprint on the poster headline and the device on an offset accent plate.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "risograph",
+    "name": "Risograph",
+    "summary": "Two-ink riso print on warm paper: accent plus a dark second ink, grain, stepped halftone dot fields, an off-register accent overprint on the poster headline and the device on an offset accent plate.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=risograph theme=light accent=#E8603C platforms=iphone,ipad\nTwo-ink riso print on warm paper: accent plus a dark second ink, grain, stepped halftone dot fields, an off-register accent overprint on the poster headline and the device on an offset accent plate.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "stat-hero",
+    "name": "Stat Hero",
+    "summary": "One huge measured number in the accent with its label beneath dominates the hero; feature shots make the headline the giant element in the same spot, device smaller in the bottom-right corner.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=stat-hero theme=dark accent=#7C5CFF platforms=mac\nOne huge measured number in the accent with its label beneath dominates the hero; feature shots make the headline the giant element in the same spot, device smaller in the bottom-right corner.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "stat-hero",
+    "name": "Stat Hero",
+    "summary": "One huge measured number in the accent with its label beneath dominates the hero; feature shots make the headline the giant element in the same spot, device smaller in the bottom-right corner.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=stat-hero theme=light accent=#E8603C platforms=iphone,ipad\nOne huge measured number in the accent with its label beneath dominates the hero; feature shots make the headline the giant element in the same spot, device smaller in the bottom-right corner.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "sticker-pop",
+    "name": "Sticker Pop",
+    "summary": "Bright flat field, chunky Bricolage Grotesque headline and the device covered in tilted die-cut stickers: a scalloped kicker seal plus feature pills and tags with thick white cut lines and drop shadows.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=sticker-pop theme=dark accent=#7C5CFF platforms=mac\nBright flat field, chunky Bricolage Grotesque headline and the device covered in tilted die-cut stickers: a scalloped kicker seal plus feature pills and tags with thick white cut lines and drop shadows.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "sticker-pop",
+    "name": "Sticker Pop",
+    "summary": "Bright flat field, chunky Bricolage Grotesque headline and the device covered in tilted die-cut stickers: a scalloped kicker seal plus feature pills and tags with thick white cut lines and drop shadows.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=sticker-pop theme=light accent=#E8603C platforms=iphone,ipad\nBright flat field, chunky Bricolage Grotesque headline and the device covered in tilted die-cut stickers: a scalloped kicker seal plus feature pills and tags with thick white cut lines and drop shadows.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  },
+  {
+    "style": "stack-cascade",
+    "name": "Stack Cascade",
+    "summary": "This screen in front, the next two screens stacked behind it, stepped and tilted like a fanned deck; headline beside (Mac) or above (iPhone, iPad) with a slot-position dot row.",
+    "app": "mailvault",
+    "appName": "MailVault",
+    "set": "demo/mailvault/set.json",
+    "platforms": [
+      "mac"
+    ],
+    "theme": "dark",
+    "accent": "#7C5CFF",
+    "prompt": "/shot-butcher style=stack-cascade theme=dark accent=#7C5CFF platforms=mac\nThis screen in front, the next two screens stacked behind it, stepped and tilted like a fanned deck; headline beside (Mac) or above (iPhone, iPad) with a slot-position dot row.",
+    "slots": [
+      "unified-inbox",
+      "chat-view-chat",
+      "archive-progress",
+      "local-vault",
+      "premium-time-capsule",
+      "link-safety-modal"
+    ]
+  },
+  {
+    "style": "stack-cascade",
+    "name": "Stack Cascade",
+    "summary": "This screen in front, the next two screens stacked behind it, stepped and tilted like a fanned deck; headline beside (Mac) or above (iPhone, iPad) with a slot-position dot row.",
+    "app": "photobooks",
+    "appName": "PhotoBooks",
+    "set": "demo/photobooks/set.json",
+    "platforms": [
+      "iphone",
+      "ipad"
+    ],
+    "theme": "light",
+    "accent": "#E8603C",
+    "prompt": "/shot-butcher style=stack-cascade theme=light accent=#E8603C platforms=iphone,ipad\nThis screen in front, the next two screens stacked behind it, stepped and tilted like a fanned deck; headline beside (Mac) or above (iPhone, iPad) with a slot-position dot row.",
+    "slots": [
+      "01-welcome",
+      "03-refine-selection",
+      "04-smart-layout",
+      "05-photo-tools",
+      "08-cover",
+      "10-export"
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "shot-butcher",
+  "owner": { "name": "Graphic Meat", "url": "https://graphicmeat.com" },
+  "plugins": [
+    {
+      "name": "shot-butcher",
+      "source": "./",
+      "description": "App Store screenshots for iPhone, iPad and Mac in 25 styles, reproducible from a one-line prompt."
+    }
+  ]
+}

@@ -108,7 +108,7 @@ export default {
       const fill = FILLS[(index + j) % FILLS.length];
       const shape = (index + j) % 2 ? 'rect' : 'pill';
       return `<div class="st" style="${L.tags[j]};transform:rotate(${tilt(j + 1)}deg)">` +
-        `<div class="tag ${shape}" data-fit="" style="max-width:${L.max}px;background:${fill};color:${inkOn(fill)}">${esc(f)}</div></div>`;
+        `<div class="tag ${shape}" data-fit="" data-overlap-ok style="max-width:${L.max}px;background:${fill};color:${inkOn(fill)}">${esc(f)}</div></div>`;
     }).join('');
     // Long kickers get a bigger seal (CJK counts double) so the text stays legible.
     const vlen = [...String(slot.kicker)].reduce((a, ch) => a + (ch.codePointAt(0) > 0x2E80 ? 2 : 1), 0);
@@ -116,7 +116,7 @@ export default {
     const s = { ...L.seal, d: L.seal.d * grow, y: L.seal.y - L.seal.d * (grow - 1) * .5 };
     const sealEl = `<div class="seal" style="left:${s.x}px;top:${s.y}px;width:${s.d}px;height:${s.d}px;transform:rotate(${tilt(0)}deg);color:${inkOn(accent)}">` +
       `<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="${seal()}" fill="${accent}"/></svg>` +
-      `<span data-fit="">${esc(slot.kicker)}</span></div>`;
+      `<span data-fit="" data-overlap-ok>${esc(slot.kicker)}</span></div>`;
 
     return `<div class="field" style="--field:${field}"></div>
       <div class="copy" style="${L.copy}">

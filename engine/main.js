@@ -65,20 +65,64 @@ export async function buildContext() {
   return ctx;
 }
 
-// Shrinks [data-fit] text until it fits: data-fit="N" caps it at N lines, data-fit="" fits its box.
+// Shrinks [data-fit] text until it fits: data-fit="N" caps it at N lines (content box, padding excluded),
+// data-fit="" fits its own box. Glyph overhang from tight line-heights is tolerated.
 function fitText(root) {
   const warnings = [];
   for (const el of root.querySelectorAll('[data-fit]')) {
-    const cs = getComputedStyle(el);
-    let size = parseFloat(cs.fontSize);
+    let size = parseFloat(getComputedStyle(el).fontSize);
     const min = size * 0.4;
     const lines = Number(el.dataset.fit);
-    const lineH = () => { const lh = parseFloat(getComputedStyle(el).lineHeight); return Number.isFinite(lh) ? lh : size * 1.2; };
-    const over = () => lines
-      ? el.getBoundingClientRect().height > lineH() * lines + 1 || el.scrollWidth > el.clientWidth + 1
-      : el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
+    const over = () => {
+      const cs = getComputedStyle(el);
+      const fs = parseFloat(cs.fontSize);
+      const slack = Math.max(1, fs * 0.12);
+      if (el.scrollWidth > el.clientWidth + 1) return true;
+      if (lines) {
+        const lh = parseFloat(cs.lineHeight);
+        const lineH = Number.isFinite(lh) ? lh : fs * 1.2;
+        const pad = ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth'].reduce((n, k) => n + parseFloat(cs[k]), 0);
+        return el.getBoundingClientRect().height - pad > lineH * lines + slack;
+      }
+      return el.scrollHeight > el.clientHeight + slack;
+    };
     while (over() && size > min) { size *= 0.96; el.style.fontSize = `${size}px`; }
     if (over()) warnings.push(`text overflow: "${el.textContent.slice(0, 40)}"`);
+  }
+  return warnings;
+}
+
+// Minimum headline size that stays readable as an App Store thumbnail (px on the canvas).
+const HEADLINE_FLOOR = { mac: 75, iphone: 86, ipad: 72 };
+
+// Layout checks that zero overflow warnings cannot catch: headline shrunk below the thumbnail floor,
+// text off the canvas, text over a device. Mark intentional overlaps with data-overlap-ok on the text
+// or an ancestor.
+function checkLayout(root, platform) {
+  const warnings = [];
+  const box = root.getBoundingClientRect();
+  const label = el => `"${el.textContent.trim().slice(0, 30)}"`;
+  for (const h of root.querySelectorAll('h1')) {
+    const fs = parseFloat(getComputedStyle(h).fontSize);
+    if (fs < HEADLINE_FLOOR[platform]) warnings.push(`headline too small: ${Math.round(fs)}px < ${HEADLINE_FLOOR[platform]}px ${label(h)}`);
+  }
+  // A device's visible area: its box clipped by every overflow-hiding ancestor up to the canvas.
+  const visible = el => {
+    let { left, top, right, bottom } = el.getBoundingClientRect();
+    for (let p = el.parentElement; p && p !== root.parentElement; p = p.parentElement) {
+      if (getComputedStyle(p).overflow === 'visible') continue;
+      const c = p.getBoundingClientRect();
+      left = Math.max(left, c.left); top = Math.max(top, c.top); right = Math.min(right, c.right); bottom = Math.min(bottom, c.bottom);
+    }
+    return { left, top, right, bottom };
+  };
+  const devices = [...root.querySelectorAll('.sb-device')].map(visible).filter(d => d.right > d.left && d.bottom > d.top);
+  for (const t of root.querySelectorAll('[data-fit]')) {
+    if (!t.textContent.trim()) continue;
+    const a = t.getBoundingClientRect();
+    if (a.left < box.left - 1 || a.top < box.top - 1 || a.right > box.right + 1 || a.bottom > box.bottom + 1) warnings.push(`text off canvas: ${label(t)}`);
+    if (t.closest('[data-overlap-ok]')) continue;
+    if (devices.some(d => a.right > d.left + 2 && a.left < d.right - 2 && a.bottom > d.top + 2 && a.top < d.bottom - 2)) warnings.push(`text over device: ${label(t)}`);
   }
   return warnings;
 }
@@ -86,10 +130,11 @@ function fitText(root) {
 async function settle(root) {
   await document.fonts.ready;
   const imgs = [...root.querySelectorAll('img')].map(i => i.complete ? null : new Promise(r => { i.onload = i.onerror = r; }));
-  const bgs = [...root.querySelectorAll('[style*="url("]')]
-    .map(el => el.style.backgroundImage.match(/url\("?(.*?)"?\)/)?.[1]).filter(Boolean)
-    .map(src => loadImage(src).catch(() => null));
-  await Promise.all([...imgs, ...bgs]);
+  const urls = new Set();
+  for (const el of [root, ...root.querySelectorAll('*')]) {
+    for (const m of getComputedStyle(el).backgroundImage.matchAll(/url\("?(.*?)"?\)/g)) urls.add(m[1]);
+  }
+  await Promise.all([...imgs, ...[...urls].map(src => loadImage(src).catch(() => null))]);
 }
 
 async function main() {
@@ -111,6 +156,7 @@ async function main() {
     await settle(canvas);
     window.__warnings = fitText(canvas);
     await document.fonts.ready;
+    window.__warnings.push(...checkLayout(canvas, ctx.platform));
     window.__meta = { style: style.id, theme, accent, platform: ctx.platform, locale: ctx.locale, slot: ctx.index, W, H };
     window.__ready = true;
   } catch (err) {

@@ -35,7 +35,8 @@ export function device(ctx, opts = {}) {
   const island = phone
     ? `<div style="position:absolute;left:50%;top:${bezel + width * 0.028}px;width:${width * 0.27}px;height:${width * 0.078}px;transform:translateX(-50%);background:#000;border-radius:${width}px"></div>`
     : '';
-  return `<div class="${cls}" style="position:relative;width:${width}px;padding:${bezel}px;border-radius:${outerR}px;background:#0c0c0e;box-shadow:inset 0 0 0 ${ring}px #3a3a3f, 0 0 0 ${ring}px #8a8a90, ${shadow};${extra}">` +
+  const shadows = [`inset 0 0 0 ${ring}px #3a3a3f`, `0 0 0 ${ring}px #8a8a90`, ...(shadow === 'none' ? [] : [shadow])].join(', ');
+  return `<div class="${cls}" style="position:relative;width:${width}px;padding:${bezel}px;border-radius:${outerR}px;background:#0c0c0e;box-shadow:${shadows};${extra}">` +
     `<div style="border-radius:${innerR}px;overflow:hidden;background:#000"><img src="${src}" style="width:100%;height:auto" alt=""></div>${island}</div>`;
 }
 
