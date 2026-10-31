@@ -22,7 +22,7 @@ test('parsePrompt rejects bad input with a clear message', () => {
 });
 
 test('resolveSet falls back to the style default theme when the set theme is unsupported', () => {
-  assert.equal(resolveSet({ theme: 'light' }, {}, ['dark']).theme, 'dark');
-  assert.equal(resolveSet({ theme: 'light' }, {}, ['dark', 'light']).theme, 'light');
-  assert.equal(resolveSet({ theme: 'light' }, { theme: 'dark' }, ['dark', 'light']).theme, 'dark');
+  assert.equal(resolveSet({ theme: 'light', accent: '#112233' }, {}, ['dark']).theme, 'dark');
+  assert.equal(resolveSet({ theme: 'light', accent: '#112233' }, {}, ['dark', 'light']).theme, 'light');
+  assert.equal(resolveSet({ theme: 'light', accent: '#112233' }, { theme: 'dark' }, ['dark', 'light']).theme, 'dark');
 });
