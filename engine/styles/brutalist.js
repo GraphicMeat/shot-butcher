@@ -72,19 +72,19 @@ export default {
       const devW = u(53);
       return `${text(P, P, W - 2 * P - devW - u(4.5), 5)}
         ${frame(W - P - devW - u(1.25), v(11.5), devW)}
-        <div class="band" style="top:${v(83)}px">${ticker}</div>`;
+        ${n ? `<div class="band" style="top:${v(83)}px">${ticker}</div>` : ""}`;
     }
     if (platform === 'iphone') {
       const P = u(6);
       const devW = u(66);
       return `${text(P, P, W - 2 * P - u(2.3), 4)}
         ${frame((W - devW) / 2 - u(1.15), v(41.5), devW)}
-        <div class="band" style="top:${v(84)}px">${ticker}</div>`;
+        ${n ? `<div class="band" style="top:${v(84)}px">${ticker}</div>` : ""}`;
     }
     const P = u(5.5);
     const devW = u(68);
     return `${text(P, P, W - 2 * P - u(1.9), 3)}
       ${frame((W - devW) / 2 - u(0.95), v(40), devW)}
-      <div class="band" style="top:${v(85)}px">${ticker}</div>`;
+      ${n ? `<div class="band" style="top:${v(85)}px">${ticker}</div>` : ""}`;
   },
 };

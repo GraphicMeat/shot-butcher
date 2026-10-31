@@ -1,0 +1,9 @@
+{
+  "app": { "name": "Edge" },
+  "accent": "#3a7",
+  "theme": "light",
+  "platforms": ["mac"],
+  "locales": ["en-US"],
+  "capture": "raw/{platform}/{theme}/unified-inbox.webp",
+  "slots": [ { "id": "not-in-copy" } ]
+}

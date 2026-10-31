@@ -46,7 +46,7 @@ export default {
   padding: ${m.dim * 0.15}px ${m.dim * 0.7}px; width: max-content; overflow: hidden; white-space: nowrap;
   font: 700 ${m.dim}px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .sb-${id} .vlab { position: absolute; z-index: 3; writing-mode: vertical-rl; transform: translate(-50%, -50%) rotate(180deg);
-  background: var(--paper); padding: ${m.dim * 0.7}px ${m.dim * 0.15}px; white-space: nowrap;
+  background: var(--paper); padding: ${m.dim * 0.7}px ${m.dim * 0.15}px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font: 700 ${m.dim}px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .sb-${id} .lab { position: absolute; z-index: 3; font: 400 ${m.lab}px/1.22 var(--font-mono); letter-spacing: .04em;
   text-transform: uppercase; color: var(--ink); }

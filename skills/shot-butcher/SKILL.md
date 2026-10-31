@@ -46,7 +46,10 @@ raw/<platform>/<theme|locale>/<slot-id>.png|webp
 
 `capture` is a path template: `{platform} {theme} {locale} {id}`. Use `{theme}` when you captured light
 and dark (Mac apps; enables split-duo), `{locale}` when the UI is localised per store locale.
-Roles: first slot `hero`, last `closer`, the rest `feature`.
+Roles: first slot `hero`, last `closer`, the rest `feature` (derived by position when omitted).
+For zoom-callout and exploded-ui, add `"zoom": {"x","y","w","h"}` / `"regions": [...]` (fractions of the
+capture) to each slot so the magnified parts land on the UI that matters; the built-in defaults are
+tuned to the demo apps only.
 
 `copy/<locale>.json`:
 

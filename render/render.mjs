@@ -76,6 +76,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const fromPrompt = prompt ? parsePrompt(prompt) : {};
   const pick = (flag, all, fallback) => { const v = arg(flag); return v === 'all' ? all : v ? v.split(',') : fallback; };
   const styles = pick('--style', STYLE_IDS, [fromPrompt.style ?? set.style]);
+  if (styles.some(s => !s)) { console.error('no style: pass --style, --prompt, or set "style" in set.json'); process.exit(2); }
   const platforms = pick('--platform', set.platforms, fromPrompt.platforms ?? set.platforms);
   const locales = pick('--locale', set.locales, fromPrompt.locales ?? set.locales);
   const slots = arg('--slot') ? [Number(arg('--slot'))] : set.slots.map((_, i) => i);
@@ -83,6 +84,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const out = arg('--out', join(ROOT, 'out', basename(dirname(setPath))));
   const r = await startRenderer({ jobs: Number(arg('--jobs', 4)) });
   const tasks = [];
+  let warned = 0;
   for (const style of styles) for (const platform of platforms) for (const locale of locales) for (const slot of slots) {
     tasks.push((async () => {
       const res = await r.renderOne({ setPath, platform, locale, slot, style, prompt, theme: arg('--theme'), accent: arg('--accent') });
@@ -90,7 +92,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       const file = join(out, style, platform, locale, `${String(slot + 1).padStart(2, '0')}-${set.slots[slot].id}.png`);
       await mkdir(dirname(file), { recursive: true });
       await sharp(res.buffer).toFile(file);
-      for (const w of res.warnings ?? []) console.warn(`WARN ${relative(ROOT, file)}: ${w}`);
+      for (const w of res.warnings ?? []) { warned++; console.warn(`WARN ${relative(ROOT, file)}: ${w}`); }
       console.log(relative(ROOT, file));
     })());
   }
@@ -98,5 +100,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await r.close();
   const failed = results.filter(x => x.status === 'rejected');
   for (const f of failed) console.error(`FAIL ${f.reason.message}`);
-  process.exit(failed.length ? 1 : 0);
+  // Warnings mean a shot is not store-ready (overflow, tiny headline, text over the app): fail the run.
+  process.exit(failed.length || warned ? 1 : 0);
 }

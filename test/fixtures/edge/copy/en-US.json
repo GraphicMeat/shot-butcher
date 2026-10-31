@@ -1,0 +1,5 @@
+{
+  "tagline": "Tagline with <b>markup</b> & \"quotes\"",
+  "slots": { "unified-inbox": { "kicker": "Kicker <i>", "headline": "One slot, no stat & no features", "sub": "Only light captures, a short accent and no icon." } },
+  "features": []
+}

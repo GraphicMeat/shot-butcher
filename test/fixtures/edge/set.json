@@ -1,0 +1,10 @@
+{
+  "app": { "name": "Edge \"Case\" App" },
+  "style": "true-bento",
+  "accent": "#3a7",
+  "theme": "dark",
+  "platforms": ["mac"],
+  "locales": ["en-US"],
+  "capture": "raw/{platform}/{theme}/{id}.webp",
+  "slots": [ { "id": "unified-inbox" } ]
+}

@@ -30,6 +30,15 @@ export function parsePrompt(text) {
 // Merge prompt overrides into a set definition, resolving the theme against what the style supports.
 export function resolveSet(set, overrides, styleThemes) {
   const merged = { ...set, ...overrides };
+  merged.accent = normalizeAccent(merged.accent);
   if (styleThemes && !styleThemes.includes(merged.theme)) merged.theme = styleThemes[0];
   return merged;
+}
+
+// "#abc" -> "#aabbcc"; anything that is not a hex colour is an error, since styles derive hues from it.
+export function normalizeAccent(accent) {
+  const a = String(accent ?? '').trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(a)) return a;
+  if (/^#[0-9a-fA-F]{3}$/.test(a)) return '#' + [...a.slice(1)].map(c => c + c).join('');
+  throw new Error(`accent must be #rrggbb, got "${accent}"`);
 }

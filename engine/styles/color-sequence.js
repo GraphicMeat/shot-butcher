@@ -89,7 +89,7 @@ export default {
     const shadow = theme === 'dark'
       ? (platform === 'mac' ? `drop-shadow(0 0 ${u(4)}px ${c.glow}) drop-shadow(0 30px 60px rgba(0,0,0,.5))` : `0 0 ${u(9)}px ${c.glow}, 0 40px 90px rgba(0,0,0,.5)`)
       : undefined;
-    const chips = seq.map((s, i) => `<i class="${i === index % N ? 'on' : ''}" style="--chip:${s.bg}"></i>`).join('');
+    const chips = Array.from({ length: ctx.count }, (_, i) => `<i class="${i === index ? 'on' : ''}" style="--chip:${seq[i % N].bg}"></i>`).join('');
     return `<div class="field" style="--c-bg:${c.bg};--c-ink:${c.ink};--c-ink-rgb:${c.inkRgb}">
       <div class="top">
         <div class="chips">${chips}</div>

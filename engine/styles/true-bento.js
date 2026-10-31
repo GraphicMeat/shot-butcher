@@ -50,6 +50,7 @@ export default {
 .sb-${id}.sb-ipad .feat:last-child:nth-child(4n+1) { grid-column: span 4; }
 .sb-${id}.sb-ipad .feat:last-child:nth-child(4n+2) { grid-column: span 3; }
 .sb-${id}.sb-ipad .feat:last-child:nth-child(4n+3) { grid-column: span 2; }
+.sb-${id} .row > :only-child { grid-column: span 2; }
 .sb-${id} .row { display: grid; gap: ${k(1)}px; grid-template-columns: 1fr 1fr; }
 `;
   },
@@ -64,11 +65,11 @@ export default {
         <div class="stage">${ctx.device({ width: stageWidth })}</div>
       </div>`;
     const ident = `<div class="tile ident">${app.icon ? `<img src="${app.icon}" alt="">` : ''}<div><b>${esc(app.name)}</b><span>${esc(tagline)}</span></div></div>`;
-    const statTile = stat ? `<div class="tile stat"><b>${esc(stat.value)}</b><span>${esc(stat.label)}</span></div>` : '<div></div>';
+    const statTile = stat ? `<div class="tile stat"><b>${esc(stat.value)}</b><span>${esc(stat.label)}</span></div>` : '';
     const feats = `<div class="feats">${features.map(f => `<div class="tile feat"><i></i><span data-fit="2">${esc(f)}</span></div>`).join('')}</div>`;
 
     if (platform === 'mac') {
-      return `${big(ctx.u(56))}<div class="side">${ident}${statTile}${feats}</div>`;
+      return `${big(ctx.u(56))}<div class="side"${stat ? '' : ' style="grid-template-rows:auto 1fr"'}>${ident}${statTile}${feats}</div>`;
     }
     if (platform === 'iphone') {
       return `${big(ctx.u(66))}${feats}<div class="row">${ident}${statTile}</div>`;

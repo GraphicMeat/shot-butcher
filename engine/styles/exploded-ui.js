@@ -49,9 +49,10 @@ function geometry(ctx) {
 
   const ok = r => r && [r.x, r.y, r.w, r.h].every(Number.isFinite) && r.w > 0 && r.h > 0;
   const custom = Array.isArray(slot.regions) ? slot.regions.filter(ok).slice(0, 3) : [];
-  const regions = custom.length ? custom.map(r => ({
+  const clamped = custom.map(r => ({
     x: clamp(r.x, 0, 1), y: clamp(r.y, 0, 1), w: Math.min(r.w, 1 - clamp(r.x, 0, 1)), h: Math.min(r.h, 1 - clamp(r.y, 0, 1)),
-  })) : REGIONS[platform][index % 6].map(([x, y, w, h]) => ({ x, y, w, h }));
+  })).filter(ok);
+  const regions = clamped.length ? clamped : REGIONS[platform][index % 6].map(([x, y, w, h]) => ({ x, y, w, h }));
 
   const top = v(platform === 'mac' ? 30 : 27);
   const bottom = H - u(platform === 'mac' ? 2.5 : 4);

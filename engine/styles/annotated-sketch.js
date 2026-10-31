@@ -87,7 +87,7 @@ export default {
     const same = (a, b) => String(a).trim().toLowerCase() === String(b).trim().toLowerCase();
     const pool = features.filter(f => !same(f, slot.kicker));
     const n = pool.length;
-    const notes = [slot.kicker, ...(n ? [pool[(index * 2) % n], pool[(index * 2 + 1) % n]] : [])].filter(Boolean);
+    const notes = [slot.kicker, ...new Set(n ? [pool[(index * 2) % n], pool[(index * 2 + 1) % n]] : [])].filter(Boolean);
 
     const arrows = [];
     const noteEls = notes.map((text, i) => {

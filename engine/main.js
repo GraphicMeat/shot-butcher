@@ -23,6 +23,9 @@ function loadImage(src) {
   });
 }
 
+// Quotes in a path must not break the HTML attribute or CSS url() it lands in.
+const safeUrl = s => encodeURI(s).replace(/'/g, '%27');
+
 const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? `{${k}}`);
 
 export async function buildContext() {
@@ -42,16 +45,25 @@ export async function buildContext() {
   const { W, H } = PLATFORMS[platform];
   const copy = await getJson(`${base}copy/${locale}.json`);
   const otherTheme = set.theme === 'dark' ? 'light' : 'dark';
-  const captureUrl = (id, theme = set.theme) => base + fill(set.capture, { platform, locale, theme, id });
-  const slots = set.slots.map((s, i) => ({ ...s, index: i, ...(copy.slots[s.id] ?? {}), capture: captureUrl(s.id) }));
+  const captureUrl = (id, theme) => safeUrl(base + fill(set.capture, { platform, locale, theme, id }));
+  const themed = set.capture.includes('{theme}');
+  // A theme-locked style can ask for captures in a theme the set never shot; fall back to the other one.
+  let captureTheme = set.theme;
+  let capture = await loadImage(captureUrl(set.slots[index].id, captureTheme)).catch(err => { if (!themed) throw err; return null; });
+  if (!capture) { captureTheme = otherTheme; capture = await loadImage(captureUrl(set.slots[index].id, captureTheme)); }
+  const last = set.slots.length - 1;
+  const slots = set.slots.map((s, i) => {
+    if (!copy.slots?.[s.id]) throw new Error(`copy/${locale}.json has no entry for slot "${s.id}"`);
+    return { ...s, index: i, role: s.role ?? (i === 0 ? 'hero' : i === last ? 'closer' : 'feature'), ...copy.slots[s.id], capture: captureUrl(s.id, captureTheme) };
+  });
   const slot = slots[index];
-  const capture = await loadImage(slot.capture);
-  const captureAlt = set.capture.includes('{theme}') ? await loadImage(captureUrl(slot.id, otherTheme)).catch(() => null) : null;
+  const altTheme = captureTheme === 'dark' ? 'light' : 'dark';
+  const captureAlt = themed ? await loadImage(captureUrl(slot.id, altTheme)).catch(() => null) : null;
 
   const ctx = {
     style, set, platform, locale, W, H, index, count: slots.length,
     theme: set.theme, accent: set.accent, role: slot.role, slot, slots,
-    app: { ...set.app, icon: set.app.icon ? base + set.app.icon : null },
+    app: { ...set.app, icon: set.app.icon ? safeUrl(base + set.app.icon) : null },
     features: copy.features ?? [], stat: copy.stat ?? null, tagline: copy.tagline ?? '',
     capture, captureAlt,
     u: n => n * W / 100, // percent of canvas width, in px

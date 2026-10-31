@@ -15,7 +15,8 @@ const TYPES = {
 
 export function serve(port = 4870, root = ROOT) {
   const server = createServer((req, res) => {
-    let path = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname));
+    let path;
+    try { path = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)); } catch { res.writeHead(400).end(); return; }
     if (path.includes('..')) { res.writeHead(400).end(); return; }
     let file = join(root, path);
     try { if (statSync(file).isDirectory()) file = join(file, 'index.html'); statSync(file); }

@@ -82,7 +82,7 @@ export default {
     } else {
       backSrc = slots[(index + 1) % count].capture;
     }
-    const back = place(ctx.device({ width: g.w, src: backSrc }), bx, g.backY, 1);
+    const back = backSrc === ctx.capture.src ? '' : place(ctx.device({ width: g.w, src: backSrc }), bx, g.backY, 1);
     const front = place(ctx.device({ width: g.w }), fx, g.frontY, 2);
     return `<div class="plinth"></div>${copy}${back}${front}${chips}`;
   },

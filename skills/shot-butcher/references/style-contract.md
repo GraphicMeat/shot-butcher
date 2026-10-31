@@ -59,6 +59,22 @@ Add `data-fit="N"` to a text element to cap it at N lines; the engine shrinks it
 (down to 40%). `data-fit=""` fits the element's own fixed box. Every headline and sub must carry one,
 because German runs ~30% longer and Japanese wraps differently. Leftover overflow is reported as a WARN.
 
+## Layout checks (engine, automatic)
+
+After fitting, the engine adds a WARN when:
+- an `<h1>` ends below the thumbnail floor (Mac 75px, iPhone 86px, iPad 72px);
+- `[data-fit]` text leaves the canvas;
+- `[data-fit]` text overlaps the visible part of a `.sb-device` (clipping ancestors respected).
+  Intentional overlap (stickers, type behind a device): put `data-overlap-ok` on the text or an ancestor.
+
+`node render/render.mjs` exits non-zero on any WARN. `node scripts/sweep.mjs [id]` renders every theme,
+platform, locale and slot and lists all warnings.
+
+Notes: `ctx.slots[i].capture` is a URL string (only `ctx.capture` / `ctx.captureAlt` carry `w`/`h`);
+role defaults to hero/feature/closer by position when set.json omits it; optional per-slot hints
+`slot.zoom {x,y,w,h}` (zoom-callout) and `slot.regions [{x,y,w,h}]` (exploded-ui) are fractions of the
+capture. Background images in style CSS are awaited before the screenshot.
+
 ## Rules
 
 - Copy only from ctx. No invented text, numbers, ratings, testimonials or user counts.
