@@ -140,6 +140,15 @@ function checkLayout(root, platform) {
 }
 
 async function settle(root) {
+  // document.fonts.ready resolves early when layout has not requested a face yet, which let text fitting
+  // measure fallback metrics now and then. Load every face the canvas uses, for the text it shows.
+  const text = root.textContent;
+  const faces = new Set();
+  for (const el of [root, ...root.querySelectorAll('*')]) {
+    const cs = getComputedStyle(el);
+    faces.add(`${cs.fontStyle} ${cs.fontWeight} 16px ${cs.fontFamily}`);
+  }
+  await Promise.all([...faces].map(f => document.fonts.load(f, text).catch(() => null)));
   await document.fonts.ready;
   const imgs = [...root.querySelectorAll('img')].map(i => i.complete ? null : new Promise(r => { i.onload = i.onerror = r; }));
   const urls = new Set();
@@ -147,7 +156,11 @@ async function settle(root) {
     for (const m of getComputedStyle(el).backgroundImage.matchAll(/url\("?(.*?)"?\)/g)) urls.add(m[1]);
   }
   await Promise.all([...imgs, ...[...urls].map(src => loadImage(src).catch(() => null))]);
+  // Fully decode before the screenshot so scaled images are not caught mid-way through a quality re-raster.
+  await Promise.all([...root.querySelectorAll('img')].map(i => i.decode().catch(() => null)));
 }
+
+const frames = n => new Promise(r => { const step = k => (k ? requestAnimationFrame(() => step(k - 1)) : r()); step(n); });
 
 async function main() {
   const canvas = document.getElementById('canvas');
@@ -169,6 +182,7 @@ async function main() {
     window.__warnings = fitText(canvas);
     await document.fonts.ready;
     window.__warnings.push(...checkLayout(canvas, ctx.platform));
+    await frames(3);
     window.__meta = { style: style.id, theme, accent, platform: ctx.platform, locale: ctx.locale, slot: ctx.index, W, H };
     window.__ready = true;
   } catch (err) {
