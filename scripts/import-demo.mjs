@@ -17,10 +17,12 @@ export const MAILVAULT_SHOTS = ['unified-inbox', 'chat-view-chat', 'archive-prog
 export const PHOTOBOOKS_SHOTS = ['01-welcome', '03-refine-selection', '04-smart-layout', '05-photo-tools', '08-cover', '10-export'];
 const LOCALES = ['en-US', 'de-DE', 'ja'];
 
-async function toWebp(src, dest) {
+// rotate: degrees clockwise. PhotoBooks shoots iPad in landscapeLeft, and the simulator saves those
+// pixels in portrait orientation (status bar down the right edge); 270 turns them upright.
+async function toWebp(src, dest, rotate = 0) {
   if (!existsSync(src)) throw new Error(`missing ${src}`);
   await mkdir(dirname(dest), { recursive: true });
-  await sharp(src).webp({ quality: 92, alphaQuality: 100 }).toFile(dest);
+  await sharp(src).rotate(rotate).webp({ quality: 92, alphaQuality: 100 }).toFile(dest);
   console.log(dest);
 }
 
@@ -31,7 +33,7 @@ for (const n of MAILVAULT_SHOTS) {
 for (const [platform, dir] of [['iphone', 'raw-ios'], ['ipad', 'raw-ipad']]) {
   for (const locale of LOCALES) {
     for (const n of PHOTOBOOKS_SHOTS) {
-      await toWebp(join(photobooks, dir, locale, `${n}.png`), join(root, `demo/photobooks/raw/${platform}/${locale}/${n}.webp`));
+      await toWebp(join(photobooks, dir, locale, `${n}.png`), join(root, `demo/photobooks/raw/${platform}/${locale}/${n}.webp`), platform === 'ipad' ? 270 : 0);
     }
   }
 }

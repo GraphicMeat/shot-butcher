@@ -29,6 +29,7 @@ CSS vars on it: every palette key (`--bg`, `--ink`, ...), `--accent` (from the s
 | mac | 2880 x 1800 | landscape 16:10 |
 | iphone | 1320 x 2868 | tall portrait |
 | ipad | 2064 x 2752 | portrait 3:4 |
+| ipad landscape | 2752 x 2064 | drawn with the `mac` layout: `ctx.platform` is `mac`, `ctx.devicePlatform` is `ipad` |
 
 Design each platform's layout on purpose. Never stretch one layout across shapes.
 
@@ -36,7 +37,8 @@ Design each platform's layout on purpose. Never stretch one layout across shapes
 
 | field | meaning |
 |---|---|
-| `platform` | `mac` / `iphone` / `ipad` |
+| `platform` | layout to draw: `mac` / `iphone` / `ipad` (landscape iPad sets get `mac`) |
+| `devicePlatform`, `orientation` | real device (frame, store size) and `portrait` / `landscape` |
 | `W`, `H`, `u(n)`, `v(n)` | canvas px; `u(n)` = n% of width, `v(n)` = n% of height |
 | `theme`, `accent`, `locale` | resolved values (`locale` en-US, de-DE, ja, ...) |
 | `index`, `count`, `role` | slot position; role is `hero` (first), `feature`, `closer` (last) |

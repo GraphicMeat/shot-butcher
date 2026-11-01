@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import sharp from 'sharp';
 import { serve, ROOT } from './serve.mjs';
-import { PLATFORMS, MAX_SLOTS } from '../engine/platforms.js';
+import { PLATFORMS, MAX_SLOTS, VIEWPORT } from '../engine/platforms.js';
 import { STYLE_IDS } from '../engine/styles/index.js';
 import { parsePrompt } from '../engine/prompt.js';
 
@@ -45,8 +45,7 @@ export async function startRenderer({ jobs = 4 } = {}) {
   async function renderAttempt({ setPath, platform, locale, slot, style, theme, accent, prompt }) {
     const page = await take();
     try {
-      const { W, H } = PLATFORMS[platform];
-      await page.setViewportSize({ width: W, height: H });
+      await page.setViewportSize(VIEWPORT);
       const params = new URLSearchParams({ set: setUrl(setPath), platform, locale, slot: String(slot) });
       if (prompt) params.set('prompt', prompt);
       if (style) params.set('style', style);

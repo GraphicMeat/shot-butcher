@@ -6,7 +6,7 @@ the renderer scales down, never up.
 | platform | capture size | how |
 |---|---|---|
 | iphone | 1320x2868 (iPhone 6.9" class simulator, portrait) | XCUITest |
-| ipad | 2064x2752 (iPad Pro 13" simulator, portrait) | XCUITest |
+| ipad | 2064x2752 portrait or 2752x2064 landscape (iPad Pro 13" simulator) | XCUITest |
 | mac | Retina window, about 2880 px wide, transparent corners | window capture |
 | web demo | 2x of the CSS viewport | Playwright |
 
@@ -28,8 +28,12 @@ Fixed clock: status bar 9:41, and in-app dates from the fixture, never "now".
    ```
    The script boots the simulator, pins the status bar (`statusbar.sh`), runs the test with
    `-testLanguage/-testRegion`, exports attachments with `xcresulttool` and names them `<slot-id>.png`.
-3. iPad shots must be portrait: lock orientation in the test (`XCUIDevice.shared.orientation = .portrait`)
-   before launching. A landscape UI saved into a portrait image is a bug, recapture it.
+3. Shoot iPad in the orientation people use the app in (`XCUIDevice.shared.orientation = .portrait`
+   or `.landscapeLeft` before launching). Landscape screenshots come out of the simulator rotated into a
+   portrait image; pass `--landscape-left` / `--landscape-right` to `capture.sh` to turn them upright.
+   The renderer picks the canvas from the capture: portrait iPad -> 2064x2752, landscape -> 2752x2064
+   with each style's wide composition. Check one raw PNG by eye: sideways UI in an upright image is the
+   one mistake the renderer cannot detect.
 
 Builds and UI tests go to the build box: `~/.claude/bin/testq ~/.claude/bin/minijob <cmd>`. The job
 clone is deleted when the job ends, so the job command must copy the PNGs somewhere that survives it

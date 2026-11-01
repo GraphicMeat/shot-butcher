@@ -1,7 +1,7 @@
 // Renders one App Store screenshot into #canvas from URL params:
 //   set=<url of set.json>  platform  locale  slot  [style theme accent | prompt=<prompt text>]
 // Signals completion with window.__ready = true (or window.__error).
-import { PLATFORMS } from './platforms.js';
+import { PLATFORMS, LANDSCAPE } from './platforms.js';
 import { parsePrompt, resolveSet } from './prompt.js';
 import { loadStyle } from './styles/index.js';
 import { device, deviceHeight, deviceWidthForHeight, crop, esc } from './frames.js';
@@ -42,7 +42,6 @@ export async function buildContext() {
   const index = Number(q.get('slot') ?? 0);
   if (!PLATFORMS[platform]) throw new Error(`unknown platform ${platform}`);
   if (!set.slots[index]) throw new Error(`no slot ${index}`);
-  const { W, H } = PLATFORMS[platform];
   const copy = await getJson(`${base}copy/${locale}.json`);
   const otherTheme = set.theme === 'dark' ? 'light' : 'dark';
   const captureUrl = (id, theme) => safeUrl(base + fill(set.capture, { platform, locale, theme, id }));
@@ -57,11 +56,18 @@ export async function buildContext() {
     return { ...s, index: i, role: s.role ?? (i === 0 ? 'hero' : i === last ? 'closer' : 'feature'), ...copy.slots[s.id], capture: captureUrl(s.id, captureTheme) };
   });
   const slot = slots[index];
+  // Orientation follows the capture: a landscape iPad capture gets the landscape canvas and the wide layout.
+  const landscape = capture.w > capture.h;
+  if (platform !== 'mac' && landscape && !LANDSCAPE[platform]) throw new Error(`${platform} capture ${slot.id} is landscape (${capture.w}x${capture.h}); landscape is supported on iPad only`);
+  if (platform === 'mac' && !landscape) throw new Error(`mac capture ${slot.id} is portrait (${capture.w}x${capture.h})`);
+  const { W, H } = platform !== 'mac' && landscape ? LANDSCAPE[platform] : PLATFORMS[platform];
+  const layout = platform !== 'mac' && landscape ? 'mac' : platform;
   const altTheme = captureTheme === 'dark' ? 'light' : 'dark';
   const captureAlt = themed ? await loadImage(captureUrl(slot.id, altTheme)).catch(() => null) : null;
 
   const ctx = {
-    style, set, platform, locale, W, H, index, count: slots.length,
+    // platform = which layout the style draws (mac/iphone/ipad); devicePlatform = which frame and store size.
+    style, set, platform: layout, devicePlatform: platform, orientation: landscape ? 'landscape' : 'portrait', locale, W, H, index, count: slots.length,
     theme: set.theme, accent: set.accent, role: slot.role, slot, slots,
     app: { ...set.app, icon: set.app.icon ? safeUrl(base + set.app.icon) : null },
     features: copy.features ?? [], stat: copy.stat ?? null, tagline: copy.tagline ?? '',
@@ -170,7 +176,7 @@ async function main() {
     const pal = style.palette[theme];
     const fonts = style.fonts;
     const stack = f => `${f}, 'Noto Sans JP', sans-serif`;
-    canvas.className = `sb sb-${style.id} sb-${ctx.platform} sb-${theme} sb-role-${ctx.role}`;
+    canvas.className = `sb sb-${style.id} sb-${ctx.platform} sb-on-${ctx.devicePlatform} sb-${ctx.orientation} sb-${theme} sb-role-${ctx.role}`;
     canvas.lang = ctx.locale;
     canvas.style.cssText = `width:${W}px;height:${H}px;` +
       Object.entries(pal).map(([k, val]) => `--${k}:${val};`).join('') +
@@ -183,7 +189,7 @@ async function main() {
     await document.fonts.ready;
     window.__warnings.push(...checkLayout(canvas, ctx.platform));
     await frames(3);
-    window.__meta = { style: style.id, theme, accent, platform: ctx.platform, locale: ctx.locale, slot: ctx.index, W, H };
+    window.__meta = { style: style.id, theme, accent, platform: ctx.devicePlatform, layout: ctx.platform, orientation: ctx.orientation, locale: ctx.locale, slot: ctx.index, W, H };
     window.__ready = true;
   } catch (err) {
     window.__error = String(err.stack ?? err);

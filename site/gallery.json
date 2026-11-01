@@ -19,7 +19,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "true-bento",
@@ -42,7 +48,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "headline-top",
@@ -64,7 +80,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "headline-top",
@@ -87,7 +109,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "bleed-top",
@@ -109,7 +141,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "bleed-top",
@@ -132,7 +170,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "panorama",
@@ -154,7 +202,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "panorama",
@@ -177,7 +231,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "tilted-3d",
@@ -199,7 +263,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "tilted-3d",
@@ -222,7 +292,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "zoom-callout",
@@ -244,7 +324,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "zoom-callout",
@@ -267,7 +353,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "exploded-ui",
@@ -289,7 +385,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "exploded-ui",
@@ -312,7 +414,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "full-bleed",
@@ -334,7 +446,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "full-bleed",
@@ -357,7 +475,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "split-duo",
@@ -379,7 +507,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "split-duo",
@@ -402,7 +536,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "kinetic-type",
@@ -424,7 +568,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "kinetic-type",
@@ -447,7 +597,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "editorial-serif",
@@ -469,7 +629,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "editorial-serif",
@@ -492,7 +658,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "swiss-grid",
@@ -514,7 +690,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "swiss-grid",
@@ -537,7 +719,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "brutalist",
@@ -559,7 +751,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "brutalist",
@@ -582,7 +780,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "minimal-mono",
@@ -604,7 +812,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "minimal-mono",
@@ -627,7 +841,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "liquid-glass",
@@ -649,7 +873,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "liquid-glass",
@@ -672,7 +902,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "aurora-dark",
@@ -694,7 +934,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "aurora-dark",
@@ -717,7 +963,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "spotlight",
@@ -739,7 +995,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "spotlight",
@@ -762,7 +1024,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "blueprint",
@@ -784,7 +1056,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "blueprint",
@@ -807,7 +1085,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "annotated-sketch",
@@ -829,7 +1117,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "annotated-sketch",
@@ -852,7 +1146,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "checklist",
@@ -874,7 +1178,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "checklist",
@@ -897,7 +1207,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "color-sequence",
@@ -919,7 +1239,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "color-sequence",
@@ -942,7 +1268,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "risograph",
@@ -964,7 +1300,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "risograph",
@@ -987,7 +1329,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "stat-hero",
@@ -1009,7 +1361,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "stat-hero",
@@ -1032,7 +1390,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "sticker-pop",
@@ -1054,7 +1422,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "sticker-pop",
@@ -1077,7 +1451,17 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   },
   {
     "style": "stack-cascade",
@@ -1099,7 +1483,13 @@
       "local-vault",
       "premium-time-capsule",
       "link-safety-modal"
-    ]
+    ],
+    "dims": {
+      "mac": [
+        960,
+        600
+      ]
+    }
   },
   {
     "style": "stack-cascade",
@@ -1122,6 +1512,16 @@
       "05-photo-tools",
       "08-cover",
       "10-export"
-    ]
+    ],
+    "dims": {
+      "iphone": [
+        420,
+        913
+      ],
+      "ipad": [
+        960,
+        720
+      ]
+    }
   }
 ]

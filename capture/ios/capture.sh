@@ -2,11 +2,13 @@
 # Runs ShotButcherTests on a simulator for one locale and exports the screenshots as <slot-id>.png.
 # Usage:
 #   capture/ios/capture.sh --scheme App --device "iPhone 17 Pro Max" --locale de-DE --out raw/iphone/de-DE \
-#     [--project App.xcodeproj | --workspace App.xcworkspace] [--test-target AppUITests]
+#     [--project App.xcodeproj | --workspace App.xcworkspace] [--test-target AppUITests] [--landscape-left|--landscape-right]
+# A screenshot taken while the device is in landscape is saved in portrait pixel orientation; the
+# landscape flag turns the exported PNGs upright.
 # Run it on the build box: ~/.claude/bin/testq ~/.claude/bin/minijob capture/ios/capture.sh ...
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
-scheme="" device="" locale="en-US" out="" container=() target=""
+scheme="" device="" locale="en-US" out="" container=() target="" rotate=0
 while (( $# > 0 )); do
   case "$1" in
     --scheme) scheme="$2"; shift 2 ;;
@@ -16,6 +18,8 @@ while (( $# > 0 )); do
     --project) container=(-project "$2"); shift 2 ;;
     --workspace) container=(-workspace "$2"); shift 2 ;;
     --test-target) target="$2"; shift 2 ;;
+    --landscape-left) rotate=270; shift ;;
+    --landscape-right) rotate=90; shift ;;
     *) print -u2 "unknown option $1"; exit 2 ;;
   esac
 done
@@ -49,4 +53,5 @@ for test in json.load(open(os.path.join(src, 'manifest.json'))):
         shutil.copy(os.path.join(src, a['exportedFileName']), os.path.join(out, name))
         print(os.path.join(out, name))
 PY
+if (( rotate )); then for f in "$out"/*.png; do sips -r "$rotate" "$f" >/dev/null; done; fi
 "$here/statusbar.sh" --clear "$udid"

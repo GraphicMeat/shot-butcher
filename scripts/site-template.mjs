@@ -1,11 +1,10 @@
 // Static HTML for the preview site. Real content in the HTML (no JS needed to read it); JS only adds copy buttons.
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const H = { mac: 600, iphone: 912, ipad: 747 };
 const PLATFORM_LABEL = { mac: 'Mac', iphone: 'iPhone 6.9"', ipad: 'iPad 13"' };
 const LOCALE_LABEL = { 'en-US': 'English', 'de-DE': 'Deutsch', ja: '日本語' };
 const REPO = 'https://github.com/GraphicMeat/shot-butcher';
 
-export function renderPage({ manifest, locale, locales, SITE_BASE, SHOTS_URL, SITE_URL, THUMB_W }) {
+export function renderPage({ manifest, locale, locales, SITE_BASE, SHOTS_URL, SITE_URL }) {
   const styles = [...new Map(manifest.map(m => [m.style, m])).values()];
   const pageUrl = `${SITE_URL}${SITE_BASE}${locale === 'en-US' ? '' : locale + '/'}`;
   const ogImage = `${SITE_URL}${SHOTS_URL}true-bento/mailvault/mac/en-US/01.webp`;
@@ -14,12 +13,14 @@ export function renderPage({ manifest, locale, locales, SITE_BASE, SHOTS_URL, SI
   let firstImages = true;
 
   const row = (m, platform) => {
+    const [w, h] = m.dims?.[platform] ?? [560, 747];
+    const shape = w > h ? 'landscape' : 'portrait';
     const imgs = m.slots.map((_, i) => {
       const n = String(i + 1).padStart(2, '0');
       const lazy = firstImages ? '' : ' loading="lazy"';
-      return `<img src="${SHOTS_URL}${m.style}/${m.app}/${platform}/${locale}/${n}.webp" width="${THUMB_W[platform]}" height="${H[platform]}"${lazy} decoding="async" alt="${esc(`${m.name} style, ${m.appName} ${PLATFORM_LABEL[platform]} screenshot ${i + 1} of ${m.slots.length}`)}">`;
+      return `<img src="${SHOTS_URL}${m.style}/${m.app}/${platform}/${locale}/${n}.webp" width="${w}" height="${h}"${lazy} decoding="async" alt="${esc(`${m.name} style, ${m.appName} ${PLATFORM_LABEL[platform]} screenshot ${i + 1} of ${m.slots.length}`)}">`;
     }).join('');
-    return `<figure class="row row-${platform}"><figcaption>${esc(m.appName)} - ${PLATFORM_LABEL[platform]}</figcaption><div class="strip">${imgs}</div></figure>`;
+    return `<figure class="row row-${platform} row-${shape}"><figcaption>${esc(m.appName)} - ${PLATFORM_LABEL[platform]}</figcaption><div class="strip">${imgs}</div></figure>`;
   };
 
   const sections = styles.map((s, idx) => {
@@ -94,7 +95,8 @@ figure.row figcaption { font-size: 13px; color: var(--muted); margin-bottom: 8px
 .row-mac .strip img { width: 480px; }
 .row-iphone .strip img { width: 190px; }
 .row-ipad .strip img { width: 260px; }
-@media (max-width: 600px) { .row-mac .strip img { width: 300px; } .row-iphone .strip img { width: 150px; } .row-ipad .strip img { width: 200px; } }
+.row-landscape .strip img { width: 400px; }
+@media (max-width: 600px) { .row-mac .strip img { width: 300px; } .row-iphone .strip img { width: 150px; } .row-ipad .strip img { width: 200px; } .row-landscape .strip img { width: 280px; } }
 footer { padding: 40px 0 64px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 </style>
 </head>

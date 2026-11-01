@@ -20,7 +20,8 @@ const skipRender = process.argv.includes('--skip-render');
 const SITE_BASE = process.env.SITE_BASE ?? '/site/'; // local server root is the repo
 const SHOTS_URL = process.env.SHOTS_URL ?? `${SITE_BASE}shots/`;
 const SITE_URL = process.env.SITE_URL ?? 'https://graphicmeat.com';
-const THUMB_W = { mac: 960, iphone: 420, ipad: 560 };
+// Thumbnail width by canvas shape; landscape iPad thumbs match the Mac width.
+const thumbWidth = (platform, w, h) => platform === 'iphone' ? 420 : w > h ? 960 : 560;
 
 export const DEMOS = [
   { app: 'mailvault', set: 'demo/mailvault/set.json', platforms: ['mac'] },
@@ -43,7 +44,10 @@ for (const id of styleIds) {
   }
 }
 
-if (!skipRender) {
+if (skipRender) {
+  const previous = JSON.parse(await readFile(join(ROOT, 'site/gallery.json'), 'utf8').catch(() => '[]'));
+  for (const m of manifest) m.dims = previous.find(p => p.style === m.style && p.app === m.app)?.dims;
+} else {
   const r = await startRenderer({ jobs: 6 });
   let done = 0;
   const total = manifest.reduce((n, m) => n + m.platforms.length * LOCALES.length * m.slots.length, 0);
@@ -54,7 +58,9 @@ if (!skipRender) {
         const res = await r.renderOne({ setPath: join(ROOT, m.set), platform, locale, slot, style: m.style, theme: m.theme, accent: m.accent });
         const file = join(ROOT, 'site/shots', m.style, m.app, platform, locale, `${String(slot + 1).padStart(2, '0')}.webp`);
         await mkdir(dirname(file), { recursive: true });
-        await sharp(res.buffer).resize({ width: THUMB_W[platform] }).webp({ quality: 82 }).toFile(file);
+        const { W, H } = res.meta;
+        const info = await sharp(res.buffer).resize({ width: thumbWidth(platform, W, H) }).webp({ quality: 82 }).toFile(file);
+        m.dims = { ...m.dims, [platform]: [info.width, info.height] };
         for (const w of res.warnings ?? []) console.warn(`WARN ${m.style} ${platform} ${locale} #${slot}: ${w}`);
         if (++done % 50 === 0) console.log(`${done}/${total}`);
       })());
@@ -76,7 +82,7 @@ await writeFile(join(ROOT, 'site/gallery.json'), JSON.stringify(manifest, null, 
 for (const locale of LOCALES) {
   const path = locale === 'en-US' ? 'index.html' : `${locale}/index.html`;
   await mkdir(join(ROOT, 'site', dirname(path)), { recursive: true });
-  await writeFile(join(ROOT, 'site', path), renderPage({ manifest, locale, locales: LOCALES, SITE_BASE, SHOTS_URL, SITE_URL, THUMB_W }));
+  await writeFile(join(ROOT, 'site', path), renderPage({ manifest, locale, locales: LOCALES, SITE_BASE, SHOTS_URL, SITE_URL }));
 }
 await writeFile(join(ROOT, 'site/robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}${SITE_BASE}sitemap.xml\n`);
 await writeFile(join(ROOT, 'site/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

@@ -13,7 +13,7 @@ const DEFAULT_SHADOW = {
 // mac: the capture is already a window with transparent rounded corners, so it gets a drop-shadow only.
 // iphone/ipad: a drawn bezel around the capture; frame:false gives a bare rounded screen.
 export function device(ctx, opts = {}) {
-  const { platform } = ctx;
+  const platform = ctx.devicePlatform;
   const width = opts.width ?? ctx.W * 0.7;
   const src = opts.src ?? ctx.capture.src;
   const cls = `sb-device sb-device-${platform} ${opts.className ?? ''}`;
@@ -43,8 +43,8 @@ export function device(ctx, opts = {}) {
 // Height in canvas pixels of device(ctx, { width }) for layout maths.
 export function deviceHeight(ctx, width, opts = {}) {
   const { w, h } = opts.capture ?? ctx.capture;
-  if (ctx.platform === 'mac' || opts.frame === false) return width * h / w;
-  const bezel = width * (ctx.platform === 'iphone' ? 0.034 : 0.026);
+  if (ctx.devicePlatform === 'mac' || opts.frame === false) return width * h / w;
+  const bezel = width * (ctx.devicePlatform === 'iphone' ? 0.034 : 0.026);
   return (width - 2 * bezel) * h / w + 2 * bezel;
 }
 
