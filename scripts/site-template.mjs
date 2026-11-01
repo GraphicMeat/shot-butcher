@@ -18,7 +18,9 @@ export function renderPage({ manifest, locale, locales, SITE_BASE, SHOTS_URL, SI
     const imgs = m.slots.map((_, i) => {
       const n = String(i + 1).padStart(2, '0');
       const lazy = firstImages ? '' : ' loading="lazy"';
-      return `<img src="${SHOTS_URL}${m.style}/${m.app}/${platform}/${locale}/${n}.webp" width="${w}" height="${h}"${lazy} decoding="async" alt="${esc(`${m.name} style, ${m.appName} ${PLATFORM_LABEL[platform]} screenshot ${i + 1} of ${m.slots.length}`)}">`;
+      const src = `${SHOTS_URL}${m.style}/${m.app}/${platform}/${locale}/${n}`;
+      // A plain link to the large image keeps it usable without JS; the script turns it into a lightbox.
+      return `<a class="shot" href="${src}-lg.webp"><img src="${src}.webp" width="${w}" height="${h}"${lazy} decoding="async" alt="${esc(`${m.name} style, ${m.appName} ${PLATFORM_LABEL[platform]} screenshot ${i + 1} of ${m.slots.length}`)}"></a>`;
     }).join('');
     return `<figure class="row row-${platform} row-${shape}"><figcaption>${esc(m.appName)} - ${PLATFORM_LABEL[platform]}</figcaption><div class="strip">${imgs}</div></figure>`;
   };
@@ -91,7 +93,21 @@ button.copy:hover { border-color: var(--accent); }
 figure.row { margin: 20px 0 0; }
 figure.row figcaption { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
 .strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity; }
-.strip img { flex: none; height: auto; border-radius: 6px; scroll-snap-align: start; background: var(--line); }
+.strip a.shot { flex: none; display: block; border-radius: 6px; scroll-snap-align: start; cursor: zoom-in; }
+.strip a.shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.strip img { display: block; height: auto; border-radius: 6px; background: var(--line); }
+dialog.lb { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(8,8,10,.97); color: #eee; }
+dialog.lb::backdrop { background: transparent; }
+.lb-stage { position: absolute; inset: 56px 64px 72px; display: flex; align-items: center; justify-content: center; }
+.lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.lb-bar { position: absolute; left: 16px; right: 16px; bottom: 20px; display: flex; justify-content: center; gap: 16px; font-size: 14px; color: #bbb; text-align: center; }
+.lb-top { position: absolute; top: 14px; left: 16px; right: 12px; display: flex; justify-content: space-between; align-items: center; font: 600 15px/1.2 system-ui, sans-serif; }
+dialog.lb button { font: 600 22px/1 system-ui, sans-serif; color: #fff; background: rgba(255,255,255,.1); border: 0; border-radius: 999px; width: 44px; height: 44px; cursor: pointer; }
+dialog.lb button:hover { background: rgba(255,255,255,.2); }
+dialog.lb button:focus-visible { outline: 2px solid var(--accent); }
+.lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 10px; } .lb-next { right: 10px; }
+@media (max-width: 600px) { .lb-stage { inset: 56px 8px 64px; } .lb-prev, .lb-next { top: auto; bottom: 12px; transform: none; } }
 .row-mac .strip img { width: 480px; }
 .row-iphone .strip img { width: 190px; }
 .row-ipad .strip img { width: 260px; }
@@ -117,7 +133,57 @@ footer { padding: 40px 0 64px; border-top: 1px solid var(--line); color: var(--m
     <p>Source, skill and renderer: <a href="${REPO}">github.com/GraphicMeat/shot-butcher</a>.</p>
   </footer>
 </div>
+<dialog class="lb" aria-label="Screenshot viewer">
+  <div class="lb-top"><span class="lb-title"></span><button type="button" class="lb-close" aria-label="Close">&times;</button></div>
+  <div class="lb-stage"><img alt=""></div>
+  <button type="button" class="lb-prev" aria-label="Previous screenshot">&lsaquo;</button>
+  <button type="button" class="lb-next" aria-label="Next screenshot">&rsaquo;</button>
+  <div class="lb-bar"><span class="lb-caption"></span><span class="lb-count"></span></div>
+</dialog>
 <script>
+{
+  // Lightbox: every screenshot of the clicked style section, in page order (Mac, iPhone, iPad).
+  const dlg = document.querySelector('dialog.lb');
+  const img = dlg.querySelector('.lb-stage img');
+  let items = [], at = 0, opener = null;
+  const show = i => {
+    at = (i + items.length) % items.length;
+    const a = items[at];
+    img.src = a.href;
+    img.alt = a.querySelector('img').alt;
+    dlg.querySelector('.lb-caption').textContent = a.closest('figure').querySelector('figcaption').textContent;
+    dlg.querySelector('.lb-count').textContent = (at + 1) + ' / ' + items.length;
+    for (const d of [1, -1]) new Image().src = items[(at + d + items.length) % items.length].href;
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a.shot');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    const section = a.closest('section');
+    items = [...section.querySelectorAll('a.shot')];
+    dlg.querySelector('.lb-title').textContent = section.querySelector('h2').textContent;
+    opener = a;
+    show(items.indexOf(a));
+    dlg.showModal();
+  });
+  dlg.querySelector('.lb-prev').onclick = () => show(at - 1);
+  dlg.querySelector('.lb-next').onclick = () => show(at + 1);
+  dlg.querySelector('.lb-close').onclick = () => dlg.close();
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.classList.contains('lb-stage')) dlg.close(); });
+  dlg.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
+  dlg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(at + 1);
+    else if (e.key === 'ArrowLeft') show(at - 1);
+  });
+  let x0 = null;
+  dlg.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  dlg.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+}
 for (const b of document.querySelectorAll('button.copy')) {
   b.hidden = false;
   b.addEventListener('click', async () => {

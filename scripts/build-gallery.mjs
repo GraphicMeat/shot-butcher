@@ -22,6 +22,8 @@ const SHOTS_URL = process.env.SHOTS_URL ?? `${SITE_BASE}shots/`;
 const SITE_URL = process.env.SITE_URL ?? 'https://graphicmeat.com';
 // Thumbnail width by canvas shape; landscape iPad thumbs match the Mac width.
 const thumbWidth = (platform, w, h) => platform === 'iphone' ? 420 : w > h ? 960 : 560;
+// Lightbox size: sharp on a laptop screen without shipping the full store PNGs.
+const largeWidth = (platform, w, h) => platform === 'iphone' ? 760 : w > h ? 2000 : 1100;
 
 export const DEMOS = [
   { app: 'mailvault', set: 'demo/mailvault/set.json', platforms: ['mac'] },
@@ -60,6 +62,7 @@ if (skipRender) {
         await mkdir(dirname(file), { recursive: true });
         const { W, H } = res.meta;
         const info = await sharp(res.buffer).resize({ width: thumbWidth(platform, W, H) }).webp({ quality: 82 }).toFile(file);
+        await sharp(res.buffer).resize({ width: largeWidth(platform, W, H) }).webp({ quality: 85 }).toFile(file.replace(/\.webp$/, '-lg.webp'));
         m.dims = { ...m.dims, [platform]: [info.width, info.height] };
         for (const w of res.warnings ?? []) console.warn(`WARN ${m.style} ${platform} ${locale} #${slot}: ${w}`);
         if (++done % 50 === 0) console.log(`${done}/${total}`);
