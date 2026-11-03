@@ -7,7 +7,7 @@ device and locale of a set, and every style is reproducible from a one-line prom
 shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac
 ```
 
-Preview all 25 styles on real apps with the local gallery (below).
+See all 25 styles on real apps, with the prompt for each: [graphicmeat.com/shot-butcher](https://graphicmeat.com/shot-butcher).
 
 ## Install the Claude Code skill
 
@@ -32,7 +32,9 @@ node render/render.mjs path/to/set.json --prompt "shot-butcher style=swiss-grid 
 Output is PNG at accepted App Store sizes (Mac 2880x1800, iPhone 6.9" 1320x2868, iPad 13" 2064x2752),
 flattened with no alpha channel, up to 10 per device. Set format: [skills/shot-butcher/SKILL.md](skills/shot-butcher/SKILL.md).
 
-## Preview site
+## Preview site locally
+
+A fresh clone has no rendered images, so build them first:
 
 ```
 npm run gallery          # renders all styles x demo sets x en-US/de-DE/ja into site/

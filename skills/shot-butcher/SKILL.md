@@ -16,8 +16,8 @@ in `ROOT` (Playwright Chromium: `npx playwright install chromium`).
 1. **Style prompt** (optional). A line like
    `shot-butcher style=true-bento theme=dark accent=#7C5CFF platforms=mac` (a leading `/` is accepted too).
    Parse it with `engine/prompt.js` `parsePrompt()`. Keys: `style theme accent platforms locales`.
-   No prompt: show the gallery (`npm run serve`, open `/site/`) or `references/styles.md` and let the
-   user pick. Never invent a style id; the list is `engine/styles/index.js` `STYLE_IDS`.
+   No prompt: send the user to https://graphicmeat.com/shot-butcher or list `references/styles.md` and
+   let them pick. Never invent a style id; the list is `engine/styles/index.js` `STYLE_IDS`.
 2. **The app's facts.** Read the app's PRODUCT.md / README / store metadata. Feature labels and
    claims come only from there, using the app's own terms. Numbers only if measured and documented.
    No testimonials, ratings, download counts or awards unless the user supplies the real source.
